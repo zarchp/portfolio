@@ -1,0 +1,204 @@
+@import 'tailwindcss';
+
+/* NEOBRUTALIST DESIGN SYSTEM - Bold, high contrast, raw aesthetic */
+
+@layer base {
+  :root {
+    /* Base colors - High contrast neobrutalist palette */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 5%;
+
+    /* Card colors - Bold blocks */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+
+    /* Popover colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    /* Primary - Bold electric blue */
+    --primary: 220 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Vibrant yellow */
+    --secondary: 50 100% 50%;
+    --secondary-foreground: 0 0% 5%;
+
+    /* Muted - Light gray blocks */
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 35%;
+
+    /* Accent - Hot pink */
+    --accent: 320 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive - Bold red */
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders - Always visible, chunky */
+    --border: 0 0% 15%;
+    --input: 0 0% 92%;
+    --ring: 220 100% 50%;
+
+    /* Neobrutalist design tokens */
+    --neo-green: 120 100% 40%;
+    --neo-orange: 25 100% 55%;
+    --neo-purple: 270 100% 60%;
+    --neo-cyan: 180 100% 45%;
+
+    /* Typography scale - Bold and chunky */
+    --font-brutal: 900;
+    --font-bold: 700;
+    --font-medium: 600;
+
+    /* Spacing and borders */
+    --border-width: 3px;
+    --border-width-thick: 5px;
+    --shadow-brutal: 6px 6px 0px hsl(var(--border));
+    --shadow-brutal-hover: 3px 3px 0px hsl(var(--border));
+
+    /* No rounded corners - keep it raw */
+    --radius: 0px;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Inverted high contrast */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Primary - Bright electric blue */
+    --primary: 220 100% 60%;
+    --primary-foreground: 0 0% 5%;
+
+    /* Secondary - Vibrant yellow */
+    --secondary: 50 100% 55%;
+    --secondary-foreground: 0 0% 5%;
+
+    /* Muted - Dark gray blocks */
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
+
+    /* Accent - Hot pink */
+    --accent: 320 100% 65%;
+    --accent-foreground: 0 0% 5%;
+
+    /* Destructive - Bold red */
+    --destructive: 0 100% 55%;
+    --destructive-foreground: 0 0% 95%;
+
+    /* Borders - Light for dark mode */
+    --border: 0 0% 85%;
+    --input: 0 0% 18%;
+    --ring: 220 100% 60%;
+
+    /* Update brutal shadows for dark mode */
+    --shadow-brutal: 6px 6px 0px hsl(var(--border));
+    --shadow-brutal-hover: 3px 3px 0px hsl(var(--border));
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-bold text-foreground;
+  }
+
+  /* Neobrutalist Typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-black tracking-tight;
+  }
+
+  .text-brutal {
+    font-weight: var(--font-brutal);
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+  }
+
+  .text-chunky {
+    font-weight: var(--font-bold);
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  /* Neobrutalist component styles */
+  .neo-card {
+    @apply border-[var(--border-width)] border-border bg-card;
+    box-shadow: var(--shadow-brutal);
+    transition: all 0.2s ease;
+  }
+
+  .neo-card:hover {
+    box-shadow: var(--shadow-brutal-hover);
+    transform: translate(3px, 3px);
+  }
+
+  .neo-button {
+    @apply border-[var(--border-width)] border-border bg-primary px-6 py-3 font-bold tracking-wide text-primary-foreground uppercase;
+    box-shadow: var(--shadow-brutal);
+    transition: all 0.2s ease;
+  }
+
+  .neo-button:hover {
+    box-shadow: var(--shadow-brutal-hover);
+    transform: translate(3px, 3px);
+  }
+
+  .neo-button:active {
+    box-shadow: none;
+    transform: translate(6px, 6px);
+  }
+
+  .neo-badge {
+    @apply border-[2px] border-border bg-secondary px-3 py-1 text-sm font-bold tracking-wide text-secondary-foreground uppercase;
+    box-shadow: 3px 3px 0px hsl(var(--border));
+  }
+
+  .neo-input {
+    @apply border-[var(--border-width)] border-border bg-input p-4 font-medium;
+    box-shadow: inset 3px 3px 0px hsl(var(--border) / 0.3);
+  }
+
+  .neo-section {
+    @apply border-border border-t-[var(--border-width-thick)] py-16;
+  }
+}
