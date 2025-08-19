@@ -1,3 +1,5 @@
+import { Github, Linkedin, Mail } from 'lucide-react';
+
 export const profile = {
   fullName: 'Muhamad Anzar Syahid',
   name: 'Anzar Syahid',
@@ -33,4 +35,21 @@ export const profile = {
     github: 'https://github.com/yourusername',
     linkedin: 'https://linkedin.com/in/yourusername',
   },
+  socials: [
+    {
+      href: 'mailto:hello@example.com',
+      label: 'Email',
+      icon: Mail,
+    },
+    {
+      href: 'https://github.com/your-handle',
+      label: 'GitHub',
+      icon: Github,
+    },
+    {
+      href: 'https://www.linkedin.com/in/your-handle',
+      label: 'LinkedIn',
+      icon: Linkedin,
+    },
+  ],
 };

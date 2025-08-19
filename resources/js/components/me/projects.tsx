@@ -80,7 +80,7 @@ export default function Projects() {
     >
       <div className="container mx-auto max-w-5xl px-6">
         <div className="mb-16 text-center">
-          <h2 className="font-display mb-4 text-4xl font-semibold text-foreground">
+          <h2 className="font-display mb-4 text-4xl font-semibold text-brand">
             My Projects
           </h2>
           <p className="mx-auto max-w-xl text-lg text-muted-foreground">

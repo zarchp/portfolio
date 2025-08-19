@@ -29,7 +29,7 @@ export default function ScrollForMore({
     >
       <a
         href={href}
-        className="group pointer-events-auto flex flex-col items-center gap-3 rounded-full px-4 py-2 text-sm font-medium text-gray-700 transition dark:border-white/10 dark:bg-white/10 dark:text-gray-200"
+        className="group pointer-events-auto flex flex-col items-center gap-3 rounded-full px-4 py-2 text-sm font-medium text-gray-700 transition dark:border-white/10 dark:text-gray-200"
         aria-label={`${label} — go to Projects`}
       >
         <div className="relative h-6 w-[18px] rounded-full border-2 border-gray-400/80 dark:border-white/60">

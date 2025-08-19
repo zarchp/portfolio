@@ -1,6 +1,6 @@
 'use client';
 
-import { Code2, Lightbulb, Rocket, Zap } from 'lucide-react';
+import { Code2, Lightbulb, Zap } from 'lucide-react';
 
 export default function About() {
   return (
@@ -80,8 +80,7 @@ export default function About() {
 
           {/* Right Column - Tech Exploration */}
           <div className="space-y-8">
-            {/* Visual Element - Profile Placeholder */}
-            <div className="mb-8 rounded-2xl border border-border bg-card p-8 text-center">
+            {/* <div className="mb-8 rounded-2xl border border-border bg-card p-8 text-center">
               <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-primary/5">
                 <Rocket className="h-12 w-12 text-primary" />
               </div>
@@ -94,7 +93,7 @@ export default function About() {
                   solutions
                 </p>
               </div>
-            </div>
+            </div> */}
 
             {/* Current Exploration */}
             <div className="rounded-xl border border-border bg-card p-8">

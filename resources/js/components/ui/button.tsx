@@ -26,7 +26,7 @@ const buttonVariants = cva(
         "neo-destructive": "bg-destructive text-destructive-foreground border-[3px] border-border shadow-brutal hover:shadow-brutal-hover hover:translate-x-[3px] hover:translate-y-[3px] active:shadow-none active:translate-x-[6px] active:translate-y-[6px] uppercase tracking-wide font-bold transition-all duration-200",
         candy: "hover:from-brand-secondary hover:to-brand-secondary bg-gradient-to-b from-brand text-shadow-sm to-brand-secondary text-white shadow-custom-brand",
         outliner:
-          "from-smooth-50 to-smooth-100 bg-gradient-to-b hover:from-background hover:text-foreground shadow-custom-btgray border",
+          "from-smooth-100 to-background bg-gradient-to-b hover:from-background hover:text-foreground shadow-custom-btgray border",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
