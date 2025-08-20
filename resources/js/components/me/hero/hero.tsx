@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6"
     >
       <InteractiveGrid />
 
@@ -31,7 +31,7 @@ export default function Hero() {
               <span className="absolute h-full w-full animate-ping rounded-full bg-green-500" />
               <span className="size-2 rounded-full bg-green-500" />
             </span>
-            {profile.status ?? 'Available for Hire'}
+            {profile.status}
           </Badge>
         </div>
 
@@ -53,17 +53,15 @@ export default function Hero() {
           <AnimatedText
             as="p"
             delay={0.15}
-            className="mx-auto max-w-sm text-muted-foreground sm:max-w-xl lg:max-w-3xl lg:text-xl"
+            className="mx-auto max-w-lg text-muted-foreground sm:max-w-xl lg:max-w-3xl lg:text-xl"
           >
-            I specialize in building modern web apps, simplifying complex ideas
-            into intuitive, scalable products that drive user growth and
-            business impact.
+            {profile.description}
           </AnimatedText>
         </div>
 
         <AnimatedGroup
           preset="slide"
-          className="pointer-events-auto flex flex-wrap justify-center gap-4"
+          className="pointer-events-auto flex justify-center gap-4"
         >
           <Button
             variant="candy"

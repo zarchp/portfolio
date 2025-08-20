@@ -1,16 +1,28 @@
 import { profile } from '@/data/profile';
 import { IconLink } from './icon-link';
 
-export function SocialLinks() {
+interface SocialLinksProps {
+  iconSize?: string;
+  gap?: string;
+  className?: string;
+}
+
+export function SocialLinks({
+  iconSize = 'size-5 md:size-6',
+  gap = 'gap-3',
+  className = '',
+}: SocialLinksProps) {
   return (
-    <div className="flex gap-3">
+    <div className={`flex ${gap} ${className}`}>
       {profile.socials.map(({ href, label, icon: Icon }) => (
         <IconLink
           key={label}
           href={href}
           label={label}
         >
-          <Icon className="size-5 text-muted-foreground transition-colors group-hover:text-background md:size-6" />
+          <Icon
+            className={`${iconSize} text-muted-foreground transition-colors group-hover:text-background`}
+          />
         </IconLink>
       ))}
     </div>

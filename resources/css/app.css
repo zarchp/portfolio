@@ -50,8 +50,20 @@
   --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
   --font-mono: JetBrains Mono, ui-monospace, monospace;
 
-  --color-brand: oklch(0.72 0.2 352.53);
-  --color-brand-secondary: oklch(0.66 0.21 354.31);
+  --color-brand: var(--color-brand-400);
+  --color-brand-secondary: var(--color-brand-100);
+  --color-brand-50: oklch(97.0293% 0.0167 343.61);
+  --color-brand-100: oklch(94.58% 0.032 344.96);
+  --color-brand-200: oklch(89.6118% 0.0654 345.89);
+  --color-brand-300: oklch(81.8916% 0.1241 347.92);
+  --color-brand-400: oklch(72.0852% 0.1999 352.82);
+  --color-brand-500: oklch(66.3778% 0.2329 357.89);
+  --color-brand-600: oklch(60.6943% 0.2341 5.5);
+  --color-brand-700: oklch(54.1779% 0.2127 8.9);
+  --color-brand-800: oklch(47.0859% 0.1819 8.62);
+  --color-brand-900: oklch(41.5991% 0.1559 7.13);
+  --color-brand-950: oklch(29.1076% 0.1152 8.4);
+
   --color-smooth-50: oklch(99.11% 0 0);
   --color-smooth-100: oklch(97.91% 0 0);
   --color-smooth-200: oklch(96.42% 0 0);
@@ -177,6 +189,18 @@
   /* SmoothUI Colors */
   --color-brand: var(--color-brand);
   --color-brand-secondary: var(--color-brand-secondary);
+
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-200: var(--color-brand-200);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-400: var(--color-brand-400);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-800: var(--color-brand-800);
+  --color-brand-900: var(--color-brand-900);
+  --color-brand-950: var(--color-brand-950);
 
   --color-smooth-50: var(--color-smooth-50);
   --color-smooth-100: var(--color-smooth-100);

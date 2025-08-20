@@ -1,6 +1,16 @@
 'use client';
 
+import { Layers } from 'lucide-react';
 import { motion } from 'motion/react';
+import {
+  Section,
+  SectionBadge,
+  SectionContainer,
+  SectionContent,
+  SectionDescription,
+  SectionHeader,
+  SectionTitle,
+} from './section';
 
 interface SkillBadgeProps {
   name: string;
@@ -153,11 +163,8 @@ export default function Skills() {
   ];
 
   return (
-    <section
-      id="skills"
-      className="w-full bg-background py-20"
-    >
-      <div className="container mx-auto max-w-5xl px-6">
+    <Section id="skills">
+      <SectionContainer>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -165,31 +172,34 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <h2 className="font-display mb-6 text-4xl font-bold text-foreground md:text-5xl">
-            Technical Skills
-          </h2>
-          <p className="font-body mx-auto max-w-2xl text-lg text-muted-foreground">
-            A comprehensive overview of my technical expertise, organized by
-            category.
-            {/* Each skill reflects years of hands-on experience and continuous learning. */}
-          </p>
+          <SectionHeader>
+            <SectionBadge>
+              <Layers className="size-4" />
+              Technology I Use
+            </SectionBadge>
+            <SectionTitle>My Stacks</SectionTitle>
+            <SectionDescription>
+              A comprehensive overview of my technical expertise, organized by
+              category.
+            </SectionDescription>
+          </SectionHeader>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <SkillCategory {...category} />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* <motion.div
+        <SectionContent>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {skillCategories.map((category, index) => (
+              <motion.div
+                key={category.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <SkillCategory {...category} />
+              </motion.div>
+            ))}
+          </div>
+          {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -201,7 +211,8 @@ export default function Skills() {
             Expert (5+ years)
           </p>
         </motion.div> */}
-      </div>
-    </section>
+        </SectionContent>
+      </SectionContainer>
+    </Section>
   );
 }

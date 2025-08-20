@@ -6,7 +6,6 @@ import Footer from '@/components/me/footer';
 import { Hero } from '@/components/me/hero';
 import Projects from '@/components/me/projects';
 import Skills from '@/components/me/skills';
-import { Testimonials } from '@/components/me/testimonials';
 
 export default function Me() {
   return (
@@ -16,7 +15,7 @@ export default function Me() {
       <Projects />
       <Experience />
       <Skills />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <About />
       <Contact />
       <Footer />

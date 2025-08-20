@@ -3,7 +3,15 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ExternalLink, Github } from 'lucide-react';
+import { Code, ExternalLink, Github } from 'lucide-react';
+import {
+  Section,
+  SectionBadge,
+  SectionContainer,
+  SectionDescription,
+  SectionHeader,
+  SectionTitle,
+} from './section';
 
 interface Project {
   id: string;
@@ -74,20 +82,22 @@ const featuredProjects: Project[] = [
 
 export default function Projects() {
   return (
-    <section
+    <Section
       id="projects"
       className="bg-background py-12"
     >
-      <div className="container mx-auto max-w-5xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="font-display mb-4 text-4xl font-semibold text-brand">
-            My Projects
-          </h2>
-          <p className="mx-auto max-w-xl text-lg text-muted-foreground">
+      <SectionContainer>
+        <SectionHeader>
+          <SectionBadge>
+            <Code className="size-4" />
+            Portfolio Showcase
+          </SectionBadge>
+          <SectionTitle>My Projects</SectionTitle>
+          <SectionDescription>
             I've worked on a variety of projects, from simple websites to
             complex web applications. Here is a showcase of my favorites.
-          </p>
-        </div>
+          </SectionDescription>
+        </SectionHeader>
 
         <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map((project) => (
@@ -172,7 +182,7 @@ export default function Projects() {
             View All Projects
           </Button>
         </div>
-      </div>
-    </section>
+      </SectionContainer>
+    </Section>
   );
 }

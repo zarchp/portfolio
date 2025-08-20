@@ -1,31 +1,32 @@
 'use client';
 
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
+import { profile } from '@/data/profile';
+import { SiWhatsapp } from '@icons-pack/react-simple-icons';
 import {
-  ArrowRight,
   CheckCircle2,
-  Clock,
+  Download,
   Github,
   Linkedin,
   Mail,
-  MapPin,
+  MessageSquareText,
   Phone,
-  Send,
+  SendHorizontal,
   Twitter,
 } from 'lucide-react';
 import { useState } from 'react';
+import {
+  Section,
+  SectionBadge,
+  SectionContainer,
+  SectionContent,
+  SectionDescription,
+  SectionHeader,
+  SectionTitle,
+} from './section';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -119,34 +120,23 @@ export default function Contact() {
   ];
 
   return (
-    <section
-      id="contact"
-      className="bg-background py-24"
-    >
-      <div className="container mx-auto max-w-5xl">
-        {/* Section Header */}
-        <div className="mb-16 text-center">
-          <h2 className="mb-6 text-4xl font-bold lg:text-5xl">
-            Let's Work Together
-          </h2>
-          <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
-            Ready to bring your ideas to life? Get in touch and let's discuss
-            how we can create something amazing together.
-          </p>
-        </div>
+    <Section id="contact">
+      <SectionContainer>
+        <SectionHeader>
+          <SectionBadge>
+            <MessageSquareText className="size-4" />
+            Get in Touch
+          </SectionBadge>
+          <SectionTitle>Let's Work Together</SectionTitle>
+          <SectionDescription>
+            Ready to bring your ideas to life? I’m open to new opportunities,
+            collaborations, or a quick chat. Let’s create something great
+            together.
+          </SectionDescription>
+        </SectionHeader>
 
-        {/* Main Contact Grid */}
-        <div className="mb-16 grid gap-12 lg:grid-cols-2">
-          {/* Contact Form */}
-          <div className="rounded-lg border bg-card p-8">
-            <div className="mb-8">
-              <h3 className="mb-2 text-2xl font-semibold">Send a Message</h3>
-              <p className="text-muted-foreground">
-                Tell me about your project and I'll get back to you within 24
-                hours.
-              </p>
-            </div>
-
+        <SectionContent className="mx-auto flex max-w-xl flex-col gap-12">
+          <div>
             {isSubmitted ? (
               <div className="py-12 text-center">
                 <CheckCircle2 className="mx-auto mb-4 h-16 w-16 text-success" />
@@ -161,7 +151,7 @@ export default function Contact() {
                 className="space-y-6"
               >
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
+                  <div className="flex flex-col gap-2">
                     <Label htmlFor="name">Name *</Label>
                     <Input
                       id="name"
@@ -171,10 +161,10 @@ export default function Contact() {
                       }
                       placeholder="Your name"
                       required
-                      className="bg-background"
+                      className="bg-background p-4"
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="flex flex-col gap-2">
                     <Label htmlFor="email">Email *</Label>
                     <Input
                       id="email"
@@ -190,56 +180,7 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label htmlFor="projectType">Project Type</Label>
-                    <Select
-                      value={formData.projectType}
-                      onValueChange={(value) =>
-                        handleInputChange('projectType', value)
-                      }
-                    >
-                      <SelectTrigger className="bg-background">
-                        <SelectValue placeholder="Select project type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {projectTypes.map((type) => (
-                          <SelectItem
-                            key={type}
-                            value={type}
-                          >
-                            {type}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="budgetRange">Budget Range</Label>
-                    <Select
-                      value={formData.budgetRange}
-                      onValueChange={(value) =>
-                        handleInputChange('budgetRange', value)
-                      }
-                    >
-                      <SelectTrigger className="bg-background">
-                        <SelectValue placeholder="Select budget range" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {budgetRanges.map((range) => (
-                          <SelectItem
-                            key={range}
-                            value={range}
-                          >
-                            {range}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
+                <div className="flex flex-col gap-2">
                   <Label htmlFor="message">Message *</Label>
                   <Textarea
                     id="message"
@@ -247,199 +188,83 @@ export default function Contact() {
                     onChange={(e) =>
                       handleInputChange('message', e.target.value)
                     }
-                    placeholder="Tell me about your project, timeline, and any specific requirements..."
-                    rows={5}
+                    placeholder="How can i help you?"
+                    rows={8}
                     required
-                    className="resize-none bg-background"
+                    className="h-32 resize-none bg-background"
                   />
                 </div>
 
-                <Button
-                  type="submit"
-                  size="lg"
-                  disabled={isSubmitting}
-                  className="w-full"
-                >
-                  {isSubmitting ? (
-                    'Sending...'
-                  ) : (
-                    <>
-                      Send Message <Send className="ml-2 h-4 w-4" />
-                    </>
-                  )}
-                </Button>
+                <div className="flex justify-center">
+                  <Button
+                    variant="candy"
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="group"
+                  >
+                    {isSubmitting ? (
+                      'Sending...'
+                    ) : (
+                      <>
+                        Send Message
+                        <SendHorizontal className="ml-2 h-4 w-4 duration-300 group-hover:translate-x-1" />
+                      </>
+                    )}
+                  </Button>
+                </div>
               </form>
             )}
           </div>
-
-          {/* Contact Information */}
-          <div className="space-y-8">
-            {/* Contact Details */}
-            <div className="rounded-lg border bg-card p-8">
-              <h3 className="mb-6 text-2xl font-semibold">Get in Touch</h3>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-primary/10 p-2">
-                    <Mail className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="mb-1 font-medium">Email</h4>
-                    <p className="mb-2 text-muted-foreground">
-                      hello@developer.com
-                    </p>
-                    <Badge
-                      variant="secondary"
-                      className="text-xs"
-                    >
-                      Usually responds within 2-4 hours
-                    </Badge>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-primary/10 p-2">
-                    <MapPin className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="mb-1 font-medium">Location</h4>
-                    <p className="text-muted-foreground">
-                      Remote • Available globally
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-success/10 p-2">
-                    <CheckCircle2 className="h-5 w-5 text-success" />
-                  </div>
-                  <div>
-                    <h4 className="mb-1 font-medium">Availability</h4>
-                    <p className="mb-2 text-muted-foreground">
-                      Currently accepting new projects
-                    </p>
-                    <Badge className="border-success/20 bg-success/10 text-success">
-                      Available for hire
-                    </Badge>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-primary/10 p-2">
-                    <Clock className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="mb-1 font-medium">Response Time</h4>
-                    <p className="text-muted-foreground">
-                      Within 24 hours • Often much faster
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Preferred Contact Methods */}
-            <div className="rounded-lg border bg-card p-8">
-              <h3 className="mb-6 text-xl font-semibold">
-                Preferred Contact Methods
-              </h3>
-
-              <div className="space-y-4">
-                {preferredMethods.map((method) => (
-                  <div
-                    key={method.label}
-                    className="flex items-center justify-between"
-                  >
-                    <div className="flex items-center gap-3">
-                      <method.icon className="h-5 w-5 text-muted-foreground" />
-                      <div>
-                        <p className="font-medium">{method.label}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {method.description}
-                        </p>
-                      </div>
-                    </div>
-                    <Badge variant="outline">{method.value}</Badge>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="rounded-lg border bg-card p-8">
-              <h3 className="mb-6 text-xl font-semibold">Connect on Social</h3>
-
-              <div className="space-y-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    className="group flex items-center gap-3 rounded-lg p-3 transition-colors hover:bg-secondary/50"
-                  >
-                    <social.icon className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-primary" />
-                    <div className="flex-1">
-                      <p className="font-medium">{social.label}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {social.handle}
-                      </p>
-                    </div>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <Separator className="my-12" />
-
-        {/* What I'm Looking For */}
-        <div className="rounded-lg border bg-card p-8">
-          <div className="mb-8 text-center">
-            <h3 className="mb-4 text-2xl font-semibold">
-              What I'm Looking For
-            </h3>
-            <p className="mx-auto max-w-2xl text-muted-foreground">
-              I'm passionate about working on projects that challenge me
-              technically and allow me to create meaningful impact. Here's what
-              excites me most:
-            </p>
-          </div>
-
-          <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {lookingFor.map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-3 rounded-lg border border-primary/10 bg-primary/5 p-4"
+          <div className="flex flex-col items-center justify-center gap-6">
+            <div>Or reach me directly:</div>
+            <div className="flex gap-4">
+              <Button
+                variant="outliner"
+                size="lg"
               >
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-primary" />
-                <span className="font-medium">{item}</span>
-              </div>
-            ))}
-          </div>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex items-center gap-2"
+                >
+                  <Download className="size-4" />
+                  Download CV
+                </a>
+              </Button>
 
-          <div className="text-center">
-            <p className="mb-6 text-muted-foreground">
-              If your project aligns with these interests, I'd love to hear from
-              you. Let's build something extraordinary together.
-            </p>
-            <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-success"></div>
-                <span>Available for new projects</span>
-              </div>
-              <Separator
-                orientation="vertical"
-                className="h-4"
-              />
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4" />
-                <span>Starting January 2024</span>
-              </div>
+              <Button
+                variant="outliner"
+                size="lg"
+              >
+                <a
+                  href={profile.links.whatsapp}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex items-center gap-2"
+                >
+                  <SiWhatsapp className="size-4" />
+                  Chat via Whatsapp
+                </a>
+              </Button>
+              <Button
+                variant="outliner"
+                size="lg"
+              >
+                <a
+                  href={`mailto:${profile.email}`}
+                  rel="noreferrer noopener"
+                  className="flex items-center gap-2"
+                >
+                  <Mail className="size-4" />
+                  Send Email
+                </a>
+              </Button>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </SectionContent>
+      </SectionContainer>
+    </Section>
   );
 }

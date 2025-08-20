@@ -1,9 +1,18 @@
 'use client';
 
 import { Badge } from '@/components/ui/badge';
-import { Calendar, MapPin } from 'lucide-react';
+import { BriefcaseBusiness, Calendar, MapPin } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
+import {
+  Section,
+  SectionBadge,
+  SectionContainer,
+  SectionContent,
+  SectionDescription,
+  SectionHeader,
+  SectionTitle,
+} from './section';
 
 interface ExperienceItem {
   company: string;
@@ -207,35 +216,34 @@ function TimelineItem({ experience, index, isLast }: TimelineItemProps) {
 
 export default function Experience() {
   return (
-    <section
-      id="experience"
-      className="bg-background px-4 py-16"
-    >
-      <div className="mx-auto max-w-4xl">
-        {/* Section Header */}
-        <div className="mb-12 text-center">
-          <h2 className="font-display mb-4 text-4xl font-semibold text-foreground">
-            Work Experience
-          </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            A journey through my professional career, showcasing growth from
-            junior developer to senior full-stack engineer with expertise in
+    <Section id="experience">
+      <SectionContainer>
+        <SectionHeader>
+          <SectionBadge>
+            <BriefcaseBusiness className="size-4" />
+            Professional Journey
+          </SectionBadge>
+          <SectionTitle>Work Experience</SectionTitle>
+          <SectionDescription>
+            My journey through my professional career, showcasing growth from
+            junior developer to senior full-stack developer with expertise in
             modern web technologies.
-          </p>
-        </div>
+          </SectionDescription>
+        </SectionHeader>
 
-        {/* Timeline */}
-        <div className="relative">
-          {experiences.map((experience, index) => (
-            <TimelineItem
-              key={`${experience.company}-${experience.duration}`}
-              experience={experience}
-              index={index}
-              isLast={index === experiences.length - 1}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+        <SectionContent>
+          <div className="relative">
+            {experiences.map((experience, index) => (
+              <TimelineItem
+                key={`${experience.company}-${experience.duration}`}
+                experience={experience}
+                index={index}
+                isLast={index === experiences.length - 1}
+              />
+            ))}
+          </div>
+        </SectionContent>
+      </SectionContainer>
+    </Section>
   );
 }
