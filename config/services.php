@@ -37,4 +37,8 @@ return [
         ],
     ],
 
+    'goodreads' => [
+        'user_id' => env('GOODREADS_USER_ID'),
+    ],
+
 ];

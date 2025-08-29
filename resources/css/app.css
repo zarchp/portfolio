@@ -51,7 +51,7 @@
   --font-mono: JetBrains Mono, ui-monospace, monospace;
 
   --color-brand: var(--color-brand-400);
-  --color-brand-secondary: var(--color-brand-100);
+  --color-brand-secondary: var(--color-brand-500);
   --color-brand-50: oklch(97.0293% 0.0167 343.61);
   --color-brand-100: oklch(94.58% 0.032 344.96);
   --color-brand-200: oklch(89.6118% 0.0654 345.89);
@@ -236,8 +236,8 @@
   --color-muted-foreground: var(--color-smooth-800);
   --color-muted: var(--color-smooth-200);
 
-  --color-background: var(--color-smooth-50);
-  --color-foreground: var(--color-smooth-1000);
+  /* --color-background: var(--color-smooth-50);
+  --color-foreground: var(--color-smooth-1000); */
 
   /* --color-primary: var(--color-smooth-50);
   --color-primary-foreground: var(--color-smooth-950); */
@@ -250,6 +250,28 @@
 
   --color-card-foreground: var(--color-smooth-1000);
   --color-card: var(--color-smooth-100);
+
+  --animate-wiggle: wiggle 0.3s ease-in-out;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+
+  --animate-wiggle-zoom: wiggle-zoom 0.3s ease-in-out;
+  @keyframes wiggle-zoom {
+    0%,
+    100% {
+      transform: rotate(-3deg) scale(1);
+    }
+    50% {
+      transform: rotate(3deg) scale(1.03);
+    }
+  }
 }
 
 /*

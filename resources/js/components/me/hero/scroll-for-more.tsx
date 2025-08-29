@@ -21,9 +21,9 @@ export default function ScrollForMore({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 8 }}
+      initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 8 }}
-      transition={{ duration: 0.25 }}
+      transition={{ delay: 1.9 }}
       className="pointer-events-none absolute bottom-18 left-1/2 -translate-x-1/2 md:bottom-22"
       aria-hidden={!visible}
     >

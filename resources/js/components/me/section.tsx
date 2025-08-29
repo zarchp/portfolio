@@ -29,7 +29,7 @@ function SectionHeader({ className, children, ...props }: DivProps) {
   return (
     <div
       className={cn(
-        'mb-16 flex flex-col items-center gap-6 text-center',
+        'mb-12 flex flex-col items-center gap-6 text-center',
         className,
       )}
       {...props}
@@ -67,26 +67,26 @@ function SectionTitle({ className, children, ...props }: DivProps) {
 
 function SectionDescription({ className, children, ...props }: DivProps) {
   return (
-    <p
+    <div
       className={cn(
-        'mx-auto max-w-3xl text-lg text-muted-foreground',
+        'mx-auto max-w-3xl text-lg/relaxed text-muted-foreground',
         className,
       )}
       {...props}
     >
       {children}
-    </p>
+    </div>
   );
 }
 
 function SectionContent({ className, children, ...props }: DivProps) {
   return (
-    <p
+    <div
       className={cn('', className)}
       {...props}
     >
       {children}
-    </p>
+    </div>
   );
 }
 

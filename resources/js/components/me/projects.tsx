@@ -3,7 +3,9 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { fadeInUp } from '@/lib/motion';
 import { Code, ExternalLink, Github } from 'lucide-react';
+import { MotionOnVisible } from '../motion/motion-on-visible';
 import {
   Section,
   SectionBadge,
@@ -87,19 +89,21 @@ export default function Projects() {
       className="bg-background py-12"
     >
       <SectionContainer>
-        <SectionHeader>
-          <SectionBadge>
-            <Code className="size-4" />
-            Portfolio Showcase
-          </SectionBadge>
-          <SectionTitle>My Projects</SectionTitle>
-          <SectionDescription>
-            I've worked on a variety of projects, from simple websites to
-            complex web applications. Here is a showcase of my favorites.
-          </SectionDescription>
-        </SectionHeader>
+        <MotionOnVisible variants={fadeInUp}>
+          <SectionHeader>
+            <SectionBadge>
+              <Code className="size-4" />
+              Portfolio Showcase
+            </SectionBadge>
+            <SectionTitle>My Projects</SectionTitle>
+            <SectionDescription>
+              I've worked on a variety of projects, from simple websites to
+              complex web applications. Here is a showcase of my favorites.
+            </SectionDescription>
+          </SectionHeader>
+        </MotionOnVisible>
 
-        <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
           {featuredProjects.map((project) => (
             <Card
               key={project.id}

@@ -21,7 +21,7 @@ export function SocialLinks({
           label={label}
         >
           <Icon
-            className={`${iconSize} text-muted-foreground transition-colors group-hover:text-background`}
+            className={`${iconSize} text-muted-foreground transition-colors group-hover:animate-wiggle group-hover:text-brand`}
           />
         </IconLink>
       ))}

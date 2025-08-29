@@ -18,12 +18,12 @@ export function IconLink({ href, label, children }: IconLinkProps) {
     <Tooltip>
       <TooltipTrigger asChild>
         <motion.a
-          whileHover={{ y: -2 }}
+          whileHover={{ y: 0 }}
           href={href}
           target="_blank"
           rel="noreferrer noopener"
           aria-label={label}
-          className="group rounded-md p-2 transition-colors hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="group rounded-md p-2 transition-colors hover:bg-brand-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           {children}
         </motion.a>

@@ -9,6 +9,7 @@ export type PresetType =
   | 'scale'
   | 'blur'
   | 'blur-slide'
+  | 'fadeInUp'
   | 'zoom'
   | 'flip'
   | 'bounce'
@@ -43,8 +44,14 @@ const defaultItemVariants: Variants = {
 const presetVariants: Record<PresetType, Variants> = {
   fade: {},
   slide: {
-    hidden: { y: 20 },
-    visible: { y: 0 },
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        ease: 'easeOut',
+      },
+    },
   },
   scale: {
     hidden: { scale: 0.8 },
@@ -57,6 +64,15 @@ const presetVariants: Record<PresetType, Variants> = {
   'blur-slide': {
     hidden: { filter: 'blur(4px)', y: 20 },
     visible: { filter: 'blur(0px)', y: 0 },
+  },
+  fadeInUp: {
+    hidden: { opacity: 0, y: 16, filter: 'blur(4px)' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: { type: 'spring', stiffness: 260, damping: 22 },
+    },
   },
   zoom: {
     hidden: { scale: 0.5 },
@@ -122,7 +138,8 @@ function AnimatedGroup({
   return (
     <MotionComponent
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
       className={className}
     >

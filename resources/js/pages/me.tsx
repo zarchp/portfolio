@@ -1,11 +1,11 @@
-import About from '@/components/me/about';
+import { About } from '@/components/me/about';
 import Contact from '@/components/me/contact';
 import Experience from '@/components/me/experience';
 import FloatingNavbar from '@/components/me/floating-navbar';
 import Footer from '@/components/me/footer';
 import { Hero } from '@/components/me/hero';
 import Projects from '@/components/me/projects';
-import Skills from '@/components/me/skills';
+import { Stacks } from '@/components/me/stacks';
 
 export default function Me() {
   return (
@@ -14,7 +14,7 @@ export default function Me() {
       <Hero />
       <Projects />
       <Experience />
-      <Skills />
+      <Stacks />
       {/* <Testimonials /> */}
       <About />
       <Contact />

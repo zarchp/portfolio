@@ -1,9 +1,11 @@
 'use client';
 
 import { Badge } from '@/components/ui/badge';
+import { fadeInUp } from '@/lib/motion';
 import { BriefcaseBusiness, Calendar, MapPin } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
+import { MotionOnVisible } from '../motion/motion-on-visible';
 import {
   Section,
   SectionBadge,
@@ -218,18 +220,20 @@ export default function Experience() {
   return (
     <Section id="experience">
       <SectionContainer>
-        <SectionHeader>
-          <SectionBadge>
-            <BriefcaseBusiness className="size-4" />
-            Professional Journey
-          </SectionBadge>
-          <SectionTitle>Work Experience</SectionTitle>
-          <SectionDescription>
-            My journey through my professional career, showcasing growth from
-            junior developer to senior full-stack developer with expertise in
-            modern web technologies.
-          </SectionDescription>
-        </SectionHeader>
+        <MotionOnVisible variants={fadeInUp}>
+          <SectionHeader>
+            <SectionBadge>
+              <BriefcaseBusiness className="size-4" />
+              Professional Journey
+            </SectionBadge>
+            <SectionTitle>Work Experience</SectionTitle>
+            <SectionDescription>
+              My journey through my professional career, showcasing growth from
+              junior developer to senior full-stack developer with expertise in
+              modern web technologies.
+            </SectionDescription>
+          </SectionHeader>
+        </MotionOnVisible>
 
         <SectionContent>
           <div className="relative">

@@ -1,11 +1,12 @@
 'use client';
 
-import { AnimatedGroup } from '@/components/smooth/animated-group';
-import { AnimatedText } from '@/components/smooth/animated-text';
+import { MotionOnVisible } from '@/components/motion/motion-on-visible';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { profile } from '@/data/profile';
+import { blur, blurUp, slideInUp, staggerContainer } from '@/lib/motion';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'motion/react';
 import { InteractiveGrid } from './interactive-grid';
 import ScrollForMore from './scroll-for-more';
 import { SocialLinks } from './social-links';
@@ -18,11 +19,14 @@ export default function Hero() {
     >
       <InteractiveGrid />
 
-      <AnimatedGroup
-        preset="blur-slide"
+      <MotionOnVisible
+        variants={staggerContainer(0.3)}
         className="pointer-events-none z-10 flex flex-col items-center gap-12 text-center"
       >
-        <div className="flex justify-center">
+        <motion.div
+          variants={blur}
+          className="flex justify-center"
+        >
           <Badge
             variant="outline"
             className="inline-flex items-center rounded-full border-success/30 bg-success/10 px-4 py-2 text-sm font-medium text-success ring-1 ring-success/10 ring-inset"
@@ -33,34 +37,33 @@ export default function Hero() {
             </span>
             {profile.status}
           </Badge>
-        </div>
+        </motion.div>
 
         <div className="flex flex-col gap-6">
-          <AnimatedText
-            as="h1"
+          <motion.h1
+            variants={blurUp}
             className="text-5xl font-extrabold tracking-tight text-pretty sm:text-6xl lg:text-7xl"
           >
             {profile.name}
-          </AnimatedText>
+          </motion.h1>
 
-          <AnimatedText
-            as="h2"
+          <motion.h2
+            variants={blurUp}
             className="text-2xl font-semibold text-pretty text-brand sm:text-3xl lg:text-4xl"
           >
             {profile.role}
-          </AnimatedText>
+          </motion.h2>
 
-          <AnimatedText
-            as="p"
-            delay={0.15}
+          <motion.p
+            variants={blurUp}
             className="mx-auto max-w-lg text-muted-foreground sm:max-w-xl lg:max-w-3xl lg:text-xl"
           >
             {profile.description}
-          </AnimatedText>
+          </motion.p>
         </div>
 
-        <AnimatedGroup
-          preset="slide"
+        <motion.div
+          variants={slideInUp}
           className="pointer-events-auto flex justify-center gap-4"
         >
           <Button
@@ -92,22 +95,19 @@ export default function Hero() {
               Let’s Connect
             </a>
           </Button>
-        </AnimatedGroup>
+        </motion.div>
 
-        <AnimatedGroup
-          preset="slide"
+        <motion.div
+          variants={slideInUp}
           className="pointer-events-auto flex justify-center"
         >
           <SocialLinks />
-        </AnimatedGroup>
-      </AnimatedGroup>
+        </motion.div>
+      </MotionOnVisible>
 
-      <AnimatedGroup
-        preset="slide"
-        className="pointer-events-auto flex justify-center"
-      >
+      <div className="pointer-events-auto flex justify-center">
         <ScrollForMore />
-      </AnimatedGroup>
+      </div>
     </section>
   );
 }
