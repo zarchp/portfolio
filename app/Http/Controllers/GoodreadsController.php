@@ -21,7 +21,7 @@ class GoodreadsController
         }
 
         $key = "goodreads:read:$userId:v1";
-        $data = Cache::remember($key, now()->addMinutes(60), function () use ($userId) {
+        $data = Cache::flexible($key, [3300, 3600], function () use ($userId) {
             $rssUrl = "https://www.goodreads.com/review/list_rss/{$userId}?shelf=read&sort=date_read";
             try {
                 $resp = Http::timeout(10)->get($rssUrl);
