@@ -86,7 +86,7 @@ export default function FloatingNavbar() {
       }
     }
 
-    if (bestId && bestId !== activeSection) {
+    if (bestId) {
       setActiveSection(bestId);
       movePillTo(indexOfId(bestId));
     } else if (bestId) {
@@ -192,7 +192,10 @@ export default function FloatingNavbar() {
               return (
                 <button
                   key={item.label}
-                  ref={(el) => (itemRefs.current[i] = el)}
+                  ref={(el) => {
+                    itemRefs.current[i] = el;
+                    return;
+                  }}
                   onClick={() => scrollToSection(item.href, i)}
                   onMouseEnter={() => movePillTo(i)}
                   onFocus={() => movePillTo(i)}

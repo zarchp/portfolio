@@ -170,7 +170,7 @@ export default function Contact() {
                         }
                         placeholder="Your name"
                         required
-                        className="bg-background p-4"
+                        className="bg-background dark:bg-input/30"
                       />
                     </div>
                     <div className="flex flex-col gap-2">
@@ -184,7 +184,7 @@ export default function Contact() {
                         }
                         placeholder="your@email.com"
                         required
-                        className="bg-background"
+                        className="bg-background dark:bg-input/30"
                       />
                     </div>
                   </div>

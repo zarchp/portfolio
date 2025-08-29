@@ -38,15 +38,16 @@ export function StackCard({
         'focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:outline-none',
         'motion-reduce:transform-none motion-reduce:transition-none',
         level === 'Expert' &&
-          'hover:shadow-[0px_5px_10px_0px_#AEE5D557] hover:shadow-green-300/50',
-        // shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]
-        level === 'Advanced' && 'hover:shadow-blue-300/50',
-        level === 'Intermediate' && 'hover:shadow-amber-300/50',
+          'hover:shadow-green-300/50 dark:hover:shadow-green-700/50',
+        level === 'Advanced' &&
+          'hover:shadow-blue-300/50 dark:hover:shadow-blue-700/50',
+        level === 'Intermediate' &&
+          'hover:shadow-amber-300/50 dark:hover:shadow-amber-700/50',
         className,
       )}
       tabIndex={0}
     >
-      <div className="rounded-md bg-gray-100 bg-radial bg-clip-border p-3">
+      <div className="rounded-md bg-secondary bg-radial bg-clip-border p-3">
         <img
           src={icon}
           alt={name}
@@ -59,9 +60,10 @@ export function StackCard({
       <div
         className={cn(
           'rounded-md px-2 py-1 text-xs text-muted-foreground',
-          level === 'Expert' && 'bg-green-100 text-green-500',
-          level === 'Advanced' && 'bg-blue-100 text-blue-500',
-          level === 'Intermediate' && 'bg-amber-100 text-amber-500',
+          level === 'Expert' && 'bg-green-100 text-green-500 dark:bg-green-950',
+          level === 'Advanced' && 'bg-blue-100 text-blue-500 dark:bg-blue-950',
+          level === 'Intermediate' &&
+            'bg-amber-100 text-amber-500 dark:bg-amber-950',
         )}
       >
         {level}

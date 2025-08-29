@@ -67,13 +67,19 @@ export default function About() {
                     className="mb-6 flex flex-col gap-4 border-b pb-6"
                   >
                     <h3 className="flex items-center gap-2 text-3xl font-semibold">
-                      👋 <span>Hello, I’m Anzar Syahid</span>
-                      <Sparkles className="size-6 text-brand" />
+                      👋{' '}
+                      <span>
+                        Hello,{' '}
+                        <span className="block sm:inline">
+                          I’m Anzar Syahid{' '}
+                          <Sparkles className="hidden size-6 text-brand sm:inline" />
+                        </span>
+                      </span>
                     </h3>
-                    <div className="text-lg text-gray-800">
+                    <div className="text-lg text-gray-800 dark:text-gray-200">
                       A passionate{' '}
                       <span className="font-semibold text-brand">
-                        Full-stack developer
+                        Full Stack developer
                       </span>{' '}
                       with{' '}
                       <span className="font-semibold text-green-500">
@@ -86,7 +92,7 @@ export default function About() {
 
                   <motion.div
                     variants={fadeIn}
-                    className="space-y-5 text-gray-600"
+                    className="space-y-5 text-secondary-foreground"
                   >
                     <p>
                       I specialize in building scalable web applications with
@@ -125,7 +131,7 @@ export default function About() {
                         <motion.span
                           key={expertise}
                           variants={fadeIn}
-                          className="rounded-md bg-brand-50 px-2 py-1 text-xs text-brand shadow-xs transition-all hover:shadow-sm"
+                          className="rounded-md bg-brand-50 px-2 py-0.5 text-xs text-brand shadow-xs transition-all hover:shadow-sm dark:bg-brand-50 dark:text-brand-700"
                         >
                           {expertise}
                         </motion.span>
@@ -175,7 +181,7 @@ export default function About() {
                     >
                       <div className="flex items-center gap-3">
                         <div className="text-brand">{contact.icon}</div>
-                        <div className="text-sm text-gray-600 transition-all group-hover:text-brand group-hover:underline">
+                        <div className="text-sm text-secondary-foreground transition-all group-hover:text-brand group-hover:underline">
                           {contact.label}
                         </div>
                       </div>
@@ -199,7 +205,9 @@ export default function About() {
                       className="flex items-center gap-3"
                     >
                       <div className="text-brand">{a.icon}</div>
-                      <div className="text-sm text-gray-600">{a.label}</div>
+                      <div className="text-sm text-secondary-foreground">
+                        {a.label}
+                      </div>
                     </motion.div>
                   ))}
                 </motion.div>

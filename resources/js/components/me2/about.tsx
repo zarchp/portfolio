@@ -20,7 +20,7 @@ export function About() {
                 For nearly a decade, I've been passionate about crafting robust,
                 scalable web applications that solve real-world problems. My
                 journey began as an intern web developer in 2015, and I've since
-                evolved into a senior full-stack developer with deep expertise
+                evolved into a senior full stack developer with deep expertise
                 in the TALL stack.
               </p>
               <p>

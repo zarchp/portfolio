@@ -43,7 +43,7 @@ function SectionBadge({ className, children, ...props }: DivProps) {
   return (
     <div
       className={cn(
-        'flex items-center gap-2 rounded-full border border-brand-200 bg-brand-100 px-4 py-2 text-sm font-semibold text-brand',
+        'flex items-center gap-2 rounded-full border border-brand-200 bg-brand-100 px-4 py-2 text-sm font-semibold text-brand dark:border-brand-100 dark:bg-brand-50',
         className,
       )}
       {...props}

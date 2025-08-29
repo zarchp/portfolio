@@ -24,7 +24,7 @@ export function StacksFilter({ filter, setFilter }: Props) {
               'cursor-pointer rounded-full px-4 py-1.5 text-sm shadow-sm transition',
               filter === category.key
                 ? 'bg-brand text-white'
-                : 'border-border bg-zinc-100 hover:bg-zinc-200',
+                : 'border-border bg-secondary hover:bg-secondary/50',
             )}
           >
             {category.label}

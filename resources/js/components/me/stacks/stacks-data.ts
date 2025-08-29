@@ -39,7 +39,7 @@ export const stacks: StackItem[] = [
   },
   // frontend
   {
-    name: 'React',
+    name: 'React.js',
     icon: '/icons/react.svg',
     level: 'Expert',
     category: 'frontend',
@@ -125,7 +125,7 @@ export const stacks: StackItem[] = [
     hasStar: false,
   },
   {
-    name: 'MS SQL Server',
+    name: 'SQL Server',
     icon: '/icons/sql_server.svg',
     level: 'Expert',
     category: 'database',

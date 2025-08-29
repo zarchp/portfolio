@@ -42,7 +42,7 @@ export default function GoodreadsReadRecent({ className }: Props) {
     <section
       className={['flex flex-col gap-3', className].filter(Boolean).join(' ')}
     >
-      <div className="text-sm text-gray-600">
+      <div className="text-sm text-secondary-foreground">
         I enjoy winding down with a good book. Here are some of my recent reads
         :
       </div>

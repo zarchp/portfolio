@@ -23,7 +23,7 @@ export function IconLink({ href, label, children }: IconLinkProps) {
           target="_blank"
           rel="noreferrer noopener"
           aria-label={label}
-          className="group rounded-md p-2 transition-colors hover:bg-brand-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="group rounded-md p-2 transition-colors hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           {children}
         </motion.a>
