@@ -2,7 +2,7 @@
 
 import { Badge } from '@/components/ui/badge';
 import { fadeInUp } from '@/lib/motion';
-import { BriefcaseBusiness, Calendar, MapPin } from 'lucide-react';
+import { BriefcaseBusiness, Building, Calendar } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { MotionOnVisible } from '../motion/motion-on-visible';
@@ -20,23 +20,33 @@ interface ExperienceItem {
   company: string;
   role: string;
   duration: string;
-  location: string;
+  type: string;
   techStack: string[];
   achievements: string[];
 }
 
 const experiences: ExperienceItem[] = [
   {
-    company: 'TechCorp Inc.',
-    role: 'Senior Full Stack Developer',
-    duration: '2022 - Present',
-    location: 'San Francisco, CA',
+    company: 'Freelance',
+    role: 'Full Stack Developer',
+    duration: 'Apr 2024 - Present',
+    type: 'Freelance | Remote',
     techStack: [
-      'React',
-      'Next.js',
-      'TypeScript',
-      'Node.js',
-      'PostgreSQL',
+      'Laravel',
+      'Livewire',
+      'Filament',
+      'NativePHP',
+      'Wordpress',
+      'React.js',
+      'Typescript',
+      'Tailwind CSS',
+      'Shadcn UI',
+      'Pest',
+      'MySQL',
+      'Oracle',
+      'SQL Server',
+      'SQLite',
+      'OpenAI',
       'AWS',
     ],
     achievements: [
@@ -47,11 +57,46 @@ const experiences: ExperienceItem[] = [
     ],
   },
   {
-    company: 'StartupXYZ',
+    company: 'PT Adi Data Informatika',
+    role: 'Lead Developer',
+    duration: 'Oct 2022 -  Mar 2024',
+    type: 'Full Time | Hybrid',
+    techStack: [
+      'Laravel',
+      'Livewire',
+      'Alpine.js',
+      'React.js',
+      'Typescript',
+      'MySQL',
+      'SQL Server',
+      'AWS',
+      'GCP',
+    ],
+    achievements: [
+      'Led development of a microservices architecture serving 1M+ users',
+      'Reduced application load time by 40% through performance optimization',
+      'Mentored 5 junior developers and established coding standards',
+      'Architected and implemented real-time collaboration features',
+    ],
+  },
+  {
+    company: 'PT Asemka Commerce Indonesia',
     role: 'Full Stack Developer',
-    duration: '2020 - 2022',
-    location: 'Remote',
-    techStack: ['Vue.js', 'Python', 'Django', 'Redis', 'Docker', 'GCP'],
+    duration: 'Sep 2017 - Sep 2022',
+    type: 'Full Time | WFO',
+    techStack: [
+      'Laravel',
+      'Livewire',
+      'Alpine.js',
+      'Vue.js',
+      'jQuery',
+      'Prestashop',
+      'Wordpress',
+      'MySQL',
+      'SQL Server',
+      'AWS',
+      'GCP',
+    ],
     achievements: [
       'Built MVP from scratch that secured $2M Series A funding',
       'Implemented automated testing pipeline reducing bugs by 60%',
@@ -60,11 +105,11 @@ const experiences: ExperienceItem[] = [
     ],
   },
   {
-    company: 'Digital Solutions Ltd.',
-    role: 'Frontend Developer',
-    duration: '2018 - 2020',
-    location: 'Austin, TX',
-    techStack: ['JavaScript', 'React', 'Redux', 'Sass', 'Webpack', 'Jest'],
+    company: 'PT Adicipta Inovasi Teknologi',
+    role: 'Full Stack Developer',
+    duration: 'Jan 2016 - Aug 2017',
+    type: 'Full Time | WFO',
+    techStack: ['CS-Cart', 'Laravel', 'jQuery', 'Bootstrap', 'MySQL'],
     achievements: [
       'Developed responsive web applications for 50+ enterprise clients',
       'Improved code quality by implementing comprehensive testing suite',
@@ -73,11 +118,11 @@ const experiences: ExperienceItem[] = [
     ],
   },
   {
-    company: 'WebDev Agency',
-    role: 'Junior Frontend Developer',
-    duration: '2015 - 2018',
-    location: 'Chicago, IL',
-    techStack: ['HTML5', 'CSS3', 'jQuery', 'Bootstrap', 'PHP', 'MySQL'],
+    company: 'CV Kabayan Consulting',
+    role: 'Junior Developer',
+    duration: 'Jun 2014 - Dec 2014',
+    type: 'Full Time | WFO',
+    techStack: ['Yii', 'Laravel', 'jQuery', 'Bootstrap', 'MySQL'],
     achievements: [
       'Delivered 30+ client websites with pixel-perfect designs',
       'Learned modern development practices and version control',
@@ -103,13 +148,12 @@ function TimelineItem({ experience, index, isLast }: TimelineItemProps) {
       ref={ref}
       className="relative flex items-start"
     >
-      {/* Timeline line and indicator */}
-      <div className="relative flex flex-col items-center">
+      <div className="relative mt-6 flex flex-col items-center">
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.3, delay: index * 0.1 }}
-          className="z-10 flex h-4 w-4 items-center justify-center rounded-full bg-primary ring-4 ring-card"
+          className="z-10 flex h-4 w-4 items-center justify-center rounded-full bg-brand ring-4 ring-card"
         >
           <div className="h-2 w-2 rounded-full bg-white" />
         </motion.div>
@@ -119,75 +163,41 @@ function TimelineItem({ experience, index, isLast }: TimelineItemProps) {
             animate={isInView ? { height: '100%' } : { height: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
             className="mt-2 w-px bg-border"
-            style={{ minHeight: '120px' }}
+            style={{ minHeight: '150px' }}
           />
         )}
       </div>
 
-      {/* Content */}
       <motion.div
         initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
         animate={
           isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isLeft ? -50 : 50 }
         }
         transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-        className={`ml-8 flex-1 pb-12 ${isLast ? 'pb-0' : ''}`}
+        className={`ml-6 flex-1 pb-12 ${isLast ? 'pb-0' : ''}`}
       >
-        <div className="rounded-lg border border-border bg-card p-6 shadow-sm">
-          {/* Header */}
-          <div className="mb-4">
-            <h3 className="font-display text-xl font-semibold text-foreground">
+        <div className="flex flex-col gap-4 rounded-lg border border-border bg-background p-4 shadow-sm sm:p-6">
+          <div className="flex flex-col gap-1">
+            <h3 className="font-display text-2xl font-semibold text-foreground">
               {experience.role}
             </h3>
-            <h4 className="font-display text-lg font-medium text-primary">
+            <h4 className="font-display text-lg font-medium text-brand">
               {experience.company}
             </h4>
-            <div className="mt-2 flex flex-wrap gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-1">
-                <Calendar className="h-4 w-4" />
+            <div className="flex flex-col gap-2 text-sm text-muted-foreground md:flex-row md:gap-6">
+              <div className="flex items-center gap-2">
+                <Calendar className="size-4" />
                 <span>{experience.duration}</span>
               </div>
-              <div className="flex items-center gap-1">
-                <MapPin className="h-4 w-4" />
-                <span>{experience.location}</span>
+              <div className="flex items-center gap-2">
+                <Building className="size-4" />
+                <span>{experience.type}</span>
               </div>
             </div>
           </div>
 
-          {/* Tech Stack */}
-          <div className="mb-4">
-            <h5 className="font-display mb-2 text-sm font-medium text-foreground">
-              Technologies Used:
-            </h5>
-            <div className="flex flex-wrap gap-2">
-              {experience.techStack.map((tech, techIndex) => (
-                <motion.div
-                  key={tech}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={
-                    isInView
-                      ? { opacity: 1, scale: 1 }
-                      : { opacity: 0, scale: 0.8 }
-                  }
-                  transition={{
-                    duration: 0.3,
-                    delay: index * 0.1 + 0.4 + techIndex * 0.05,
-                  }}
-                >
-                  <Badge
-                    variant="secondary"
-                    className="text-xs"
-                  >
-                    {tech}
-                  </Badge>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Achievements */}
-          <div>
-            <h5 className="font-display mb-3 text-sm font-medium text-foreground">
+          <div className="">
+            <h5 className="font-display mb-2 text-base font-medium text-foreground">
               Key Achievements:
             </h5>
             <ul className="space-y-2">
@@ -202,13 +212,43 @@ function TimelineItem({ experience, index, isLast }: TimelineItemProps) {
                     duration: 0.3,
                     delay: index * 0.1 + 0.5 + achievementIndex * 0.1,
                   }}
-                  className="flex items-start gap-2 text-sm text-muted-foreground"
+                  className="flex items-start gap-2 text-base text-secondary-foreground"
                 >
                   <div className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
                   <span>{achievement}</span>
                 </motion.li>
               ))}
             </ul>
+          </div>
+
+          <div className="">
+            <h5 className="font-display mb-2 text-base font-medium text-foreground">
+              Technologies Used:
+            </h5>
+            <div className="flex flex-wrap gap-2">
+              {experience.techStack.map((tech, techIndex) => (
+                <motion.div
+                  key={tech}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={
+                    isInView
+                      ? { opacity: 1, scale: 1 }
+                      : { opacity: 0, scale: 0.8 }
+                  }
+                  transition={{
+                    duration: 0.3,
+                    delay: index * 0.1 + 0.4 + techIndex * 0.15,
+                  }}
+                >
+                  <Badge
+                    variant="secondary"
+                    className="text-xs"
+                  >
+                    {tech}
+                  </Badge>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </motion.div>
@@ -228,9 +268,7 @@ export default function Experience() {
             </SectionBadge>
             <SectionTitle>Work Experience</SectionTitle>
             <SectionDescription>
-              My journey through my professional career, showcasing growth from
-              junior developer to senior full-stack developer with expertise in
-              modern web technologies.
+              Here's a timeline of my professional career
             </SectionDescription>
           </SectionHeader>
         </MotionOnVisible>
