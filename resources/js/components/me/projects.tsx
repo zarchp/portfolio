@@ -1,84 +1,108 @@
-'use client';
-
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import ProjectCard from '@/components/me/project-card';
 import { fadeInUp } from '@/lib/motion';
-import { Code, ExternalLink, Github } from 'lucide-react';
+import type { Project } from '@/types/project';
+import { Code } from 'lucide-react';
 import { MotionOnVisible } from '../motion/motion-on-visible';
+import { Button } from '../ui/button';
 import {
   Section,
   SectionBadge,
   SectionContainer,
+  SectionContent,
   SectionDescription,
   SectionHeader,
   SectionTitle,
 } from './section';
 
-interface Project {
-  id: string;
-  name: string;
-  description: string;
-  techStack: string[];
-  image?: string;
-  liveUrl?: string;
-  githubUrl?: string;
-}
-
-const featuredProjects: Project[] = [
+const projects: Project[] = [
   {
-    id: '1',
-    name: 'E-Commerce Platform',
+    id: 'simm',
+    title: 'Merchant Management System for OVO',
+    subtitle: 'Enterprise Merchant Management Platform',
     description:
-      'Full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.',
-    techStack: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Redis'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/username/project',
+      'An enterprise-grade system built for PT OVO Visionet Internasional to manage the full merchant lifecycle from acquisition and activation to support, vendor operations, and analytics. Includes dashboards for multiple roles, mobile integration for couriers, and API access for third-party vendors.',
+    imageUrl: '/images/projects/simm.png',
+    liveUrl: null,
+    repoUrl: null,
+    status: 'live',
+    tags: ['Web App', 'Dashboard', 'API', 'Mobile'],
+    keyFeatures: [
+      //   'Role-based dashboards with tailored views for managers, acquisition team, activation team, and vendors',
+      //   'End-to-end merchant lifecycle workflows: acquisition, activation, vendor operations, and reporting',
+      //   'Bulk operations: Excel import/export, scheduled daily reports, and password-protected files',
+      //   'Handles daily processing of thousands of merchant records efficiently',
+      //   'Audit trail to track history of data changes and user activities',
+      //   'Collateral stock monitoring per vendor',
+      //   'APIs for mobile apps and third-party vendors',
+      //   'Courier mobile app (Android) for courier on-site merchant visits',
+      //   'Scalable hosting on AWS with Cloudflare for performance and security',
+      'Role-based dashboards for managers, acquisition, activation, and vendors',
+      'Full merchant acquistion and activation lifecycle workflows',
+      'Bulk Excel import/export, daily reports, and encrypted files',
+      'Processes thousands of data records daily',
+      'Audit trail for data changes and user activities',
+      'Collateral stock tracking per vendor',
+      'APIs for mobile apps and 3rd-party vendor systems',
+      'Android app for couriers with e-forms, GPS, and photo uploads',
+      'Hosted on AWS with Cloudflare for scale and security',
+    ],
+    deliverables: [
+      //   'Participated in requirement gathering, problem analysis, and proposed best-fit solutions to the client',
+      //   'Designed and built multi-role dashboards tailored for each business unit',
+      //   'Developed Android integration via API for courier on-site merchant visits',
+      //   'Built reporting engine: bulk Excel import, per-menu export, daily auto-report, and secure password-encrypted Excel',
+      //   'Provided APIs for third-party vendors to sync data and update status',
+      //   'Optimized system for daily processing of thousands of records',
+      //   'Handled full development lifecycle: developing, testing, deployment to production, and ongoing maintenance',
+      //   'Ensured system security by following recommendations from the OVO security team',
+      'Participated requirement gathering, problem analysis, and proposed solutions',
+      'Designed and built dashboards for multiple business roles',
+      'Developed APIs for courier mobile app and 3rd-party vendor data sync',
+      'Built reporting engine with bulk Excel, daily reports, and encryption',
+      'Optimized system to handle thousands of records daily',
+      'Managed full lifecycle: development, testing, deployment, and maintenance',
+      'Applied security practices based on OVO security team guidance',
+    ],
+    techStacks: ['Laravel', 'Bootstrap', 'MySQL', 'Redis', 'AWS', 'Cloudflare'],
   },
   {
-    id: '2',
-    name: 'Task Management App',
+    id: 'portfolio',
+    title: 'My Portfolio',
+    subtitle: 'Professional Portfolio & Resume Website',
     description:
-      'Collaborative project management tool with real-time updates, drag-and-drop interface, and team collaboration features.',
-    techStack: ['Next.js', 'TypeScript', 'Prisma', 'WebSocket', 'Tailwind CSS'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/username/project',
-  },
-  {
-    id: '3',
-    name: 'AI Content Generator',
-    description:
-      'Machine learning-powered content generation platform with natural language processing and custom model training capabilities.',
-    techStack: ['Python', 'FastAPI', 'TensorFlow', 'React', 'Docker'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/username/project',
-  },
-  {
-    id: '4',
-    name: 'Real-time Analytics Dashboard',
-    description:
-      'Data visualization platform with real-time metrics, customizable charts, and automated reporting features for business intelligence.',
-    techStack: ['Vue.js', 'D3.js', 'Node.js', 'MongoDB', 'Socket.io'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/username/project',
-  },
-  {
-    id: '5',
-    name: 'Mobile Banking App',
-    description:
-      'Secure mobile banking application with biometric authentication, transaction history, and peer-to-peer payment functionality.',
-    techStack: ['React Native', 'Express.js', 'JWT', 'Encryption', 'AWS'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/username/project',
-  },
-  {
-    id: '6',
-    name: 'IoT Monitoring System',
-    description:
-      'Industrial IoT monitoring platform with sensor data collection, real-time alerts, and predictive maintenance algorithms.',
-    techStack: ['Python', 'MQTT', 'InfluxDB', 'Grafana', 'Kubernetes'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/username/project',
+      'A modern, responsive portfolio showcasing my professional journey, projects, and skills. Designed with a custom UI system, dark mode, and optimized for speed, accessibility, and maintainability.',
+    imageUrl: '/images/projects/portfolio.png',
+    liveUrl: '#home',
+    repoUrl: 'https://github.com/zarchp/portfolio',
+    status: 'live',
+    tags: ['Web App', 'Personal'],
+    keyFeatures: [
+      'Responsive design with light and dark mode',
+      'Dedicated sections for Hero, About, Skills, Projects, and Contact',
+      'Polished presentation with consistent branding and custom UI',
+      'Accessible navigation with semantic HTML and keyboard support',
+      'High performance with code-splitting, lazy loading, and prefetching',
+    ],
+    deliverables: [
+      'Planned structure and layout for portfolio content',
+      'Designed and built reusable UI components for consistency',
+      'Developed project and skills showcase with dynamic content',
+      'Implemented strong accessibility and responsive design standards',
+      'Configured automated deployment and hosting',
+      'Maintained code quality with testing, linting, and version control',
+    ],
+    techStacks: [
+      'Laravel',
+      'Filament',
+      'Inertia',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Shadcn UI',
+      'SQLite',
+      'Pest',
+      'Tencent Cloud',
+    ],
   },
 ];
 
@@ -103,90 +127,64 @@ export default function Projects() {
           </SectionHeader>
         </MotionOnVisible>
 
-        <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-2">
-          {featuredProjects.map((project) => (
-            <Card
-              key={project.id}
-              className="group flex h-full flex-col overflow-hidden border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/20"
-            >
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/20 via-secondary to-muted/30">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute right-4 bottom-4 left-4">
-                  <h3 className="font-display mb-2 text-xl font-semibold text-white transition-colors group-hover:text-primary">
-                    {project.name}
-                  </h3>
-                </div>
-              </div>
-
-              <CardContent className="flex flex-1 flex-col p-6">
-                <p className="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {project.description}
-                </p>
-
-                <div className="mb-6 flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="secondary"
-                      className="bg-secondary/50 text-xs text-secondary-foreground transition-colors hover:bg-secondary/70"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-
-                <div className="mt-auto flex gap-3">
-                  {project.liveUrl && (
-                    <Button
-                      size="sm"
-                      className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
-                      asChild
-                    >
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2"
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                        Live Demo
-                      </a>
-                    </Button>
-                  )}
-                  {project.githubUrl && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 border-border hover:bg-secondary/50"
-                      asChild
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2"
-                      >
-                        <Github className="h-4 w-4" />
-                        Code
-                      </a>
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-border px-8 text-foreground hover:bg-secondary/50"
-          >
-            View All Projects
-          </Button>
-        </div>
+        <SectionContent className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6">
+            {projects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+              />
+            ))}
+          </div>
+          <div>
+            <div className="text-center">
+              <Button
+                // variant="primary"
+                className="text-2xl font-semibold"
+              >
+                More Projects
+              </Button>
+              {/* <p className="mt-2 text-sm text-muted-foreground">
+                Showing {showCount} of {others.length}
+              </p> */}
+            </div>
+          </div>
+        </SectionContent>
       </SectionContainer>
     </Section>
+  );
+  return (
+    <section
+      id="projects"
+      className="py-20"
+    >
+      <div className="container">
+        {/* ENGLISH COMMENT: Header */}
+        <div className="mb-10 flex flex-col items-center text-center">
+          <div className="mb-3">
+            <span className="rounded-full border px-3 py-1 text-xs font-medium text-muted-foreground">
+              Portfolio Showcase
+            </span>
+          </div>
+          <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
+            Featured Projects
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+            A curated showcase of recent work — complete with screenshots, live
+            links, and the exact stack used in production.
+          </p>
+        </div>
+
+        {/* ENGLISH COMMENT: Responsive grid */}
+        <div className="grid gap-6 md:grid-cols-2">
+          {projects.map((p) => (
+            <ProjectCard
+              key={p.id}
+              project={p}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

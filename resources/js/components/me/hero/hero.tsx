@@ -21,7 +21,7 @@ export default function Hero() {
 
       <MotionOnVisible
         variants={staggerContainer(0.3)}
-        className="pointer-events-none z-10 flex flex-col items-center gap-12 text-center"
+        className="pointer-events-none z-10 flex flex-col items-center gap-12 text-center [@media(max-height:768px)]:mb-16"
       >
         <motion.div
           variants={blur}

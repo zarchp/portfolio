@@ -46,6 +46,13 @@ export const stacks: StackItem[] = [
     hasStar: true,
   },
   {
+    name: 'Next.js',
+    icon: '/icons/next.js.svg',
+    level: 'Advanced',
+    category: 'frontend',
+    hasStar: false,
+  },
+  {
     name: 'Typescript',
     icon: '/icons/typescript.svg',
     level: 'Expert',
@@ -63,13 +70,6 @@ export const stacks: StackItem[] = [
     name: 'Alpine.js',
     icon: '/icons/alpine.js.svg',
     level: 'Expert',
-    category: 'frontend',
-    hasStar: false,
-  },
-  {
-    name: 'Vue.js',
-    icon: '/icons/vue.js.svg',
-    level: 'Intermediate',
     category: 'frontend',
     hasStar: false,
   },

@@ -29,7 +29,7 @@ const experiences: ExperienceItem[] = [
   {
     company: 'Freelance',
     role: 'Full Stack Developer',
-    duration: 'Apr 2024 - Present',
+    duration: 'Present',
     type: 'Freelance | Remote',
     techStack: [
       'Laravel',
@@ -176,7 +176,7 @@ function TimelineItem({ experience, index, isLast }: TimelineItemProps) {
         transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
         className={`ml-6 flex-1 pb-12 ${isLast ? 'pb-0' : ''}`}
       >
-        <div className="flex flex-col gap-4 rounded-lg border border-border bg-background p-4 shadow-sm sm:p-6">
+        <div className="flex flex-col gap-4 rounded-xl border border-border bg-background p-4 shadow-sm sm:p-6">
           <div className="flex flex-col gap-1">
             <h3 className="font-display text-2xl font-semibold text-foreground">
               {experience.role}
