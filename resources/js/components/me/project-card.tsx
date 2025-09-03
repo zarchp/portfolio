@@ -1,7 +1,6 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 import {
   fadeInRight,
   fadeInUp,
@@ -63,8 +62,8 @@ export default function ProjectCard({ project, className }: Props) {
       className={cn(className)}
     >
       <Card className="group overflow-hidden rounded-2xl border-border/60 bg-background py-4 shadow-sm transition-all hover:shadow-md md:py-6">
-        <CardContent className="px-4 md:px-6">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-5 md:gap-6">
+        <CardContent className="flex flex-col gap-4 px-4 md:px-6">
+          <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-5 md:gap-6">
             <div className="relative col-span-2 flex aspect-[16/9] w-full justify-center overflow-hidden rounded-md">
               <motion.img
                 variants={fadeInUp}
@@ -185,15 +184,11 @@ export default function ProjectCard({ project, className }: Props) {
               </motion.div>
             </MotionOnVisible>
           </div>
-        </CardContent>
 
-        <Separator />
-
-        <CardContent className="flex flex-col gap-4 px-4 md:px-6">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {!!project.keyFeatures?.length && (
               <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-2 text-lg font-semibold text-brand">
+                <div className="flex items-center gap-2 text-lg font-medium text-brand">
                   <ListChecks className="size-5" />
                   Key Features
                 </div>
@@ -207,7 +202,7 @@ export default function ProjectCard({ project, className }: Props) {
                       variants={slideInRight}
                       className="flex items-start gap-2"
                     >
-                      <CheckCircle className="mt-1 size-3" />
+                      <CheckCircle className="mt-1 size-3 shrink-0 text-emerald-500" />
                       <span className="text-sm text-secondary-foreground">
                         {f}
                       </span>
@@ -219,7 +214,7 @@ export default function ProjectCard({ project, className }: Props) {
 
             {!!project.deliverables?.length && (
               <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-2 text-lg font-semibold text-brand">
+                <div className="flex items-center gap-2 text-lg font-medium text-brand">
                   <Package className="size-5" />
                   Deliverables
                 </div>
@@ -233,7 +228,7 @@ export default function ProjectCard({ project, className }: Props) {
                       variants={slideInRight}
                       className="flex items-start gap-2"
                     >
-                      <Rocket className="mt-1 size-3" />
+                      <Rocket className="mt-1 size-3 shrink-0 text-blue-500" />
                       <span className="text-sm text-secondary-foreground">
                         {d}
                       </span>
@@ -243,15 +238,11 @@ export default function ProjectCard({ project, className }: Props) {
               </div>
             )}
           </div>
-        </CardContent>
 
-        <Separator />
-
-        <CardContent className="flex flex-col gap-4 px-4 md:px-6">
           <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2 text-lg font-semibold text-brand">
+            <div className="flex items-center gap-2 text-lg font-medium text-brand">
               <Layers className="size-5" />
-              Tech Stacks
+              Technologies Used
             </div>
             <motion.div
               className="flex flex-wrap gap-2"

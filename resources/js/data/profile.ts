@@ -22,10 +22,12 @@ export const profile = {
   role: 'Full Stack Developer',
   roles: [
     'Full Stack Developer',
-    'Frontend Developer',
-    'Backend Developer',
+    'Laravel Specialist',
+    'React Developer',
     'Mobile Developer',
-    'Software Engineer',
+    'Technical Lead',
+    'DevOps Enthuasiast',
+    'Avid Reader',
   ],
   status: 'Available for Hire',
   description:

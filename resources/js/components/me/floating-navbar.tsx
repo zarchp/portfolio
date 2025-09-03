@@ -161,7 +161,7 @@ export default function FloatingNavbar() {
       aria-label="Site navigation"
     >
       <div
-        className={`rounded-full border border-border bg-card/80 px-1 py-0.5 shadow-lg backdrop-blur-lg transition-all duration-300 ${
+        className={`rounded-full border border-border bg-card/80 px-1 py-0.5 shadow-md backdrop-blur-md transition-all duration-300 ${
           scrolled ? 'shadow-xl' : 'shadow-lg'
         }`}
       >
