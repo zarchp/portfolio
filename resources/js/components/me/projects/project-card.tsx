@@ -20,7 +20,7 @@ import {
   Star,
 } from 'lucide-react';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
-import { MotionOnVisible } from '../motion/motion-on-visible';
+import { MotionOnVisible } from '../../motion/motion-on-visible';
 
 type Props = {
   project: Project;
@@ -61,16 +61,16 @@ export default function ProjectCard({ project, className }: Props) {
       variants={fadeInUp}
       className={cn(className)}
     >
-      <Card className="group overflow-hidden rounded-2xl border-border/60 bg-background py-4 shadow-sm transition-all hover:shadow-md md:py-6">
-        <CardContent className="flex flex-col gap-4 px-4 md:px-6">
+      <Card className="group overflow-hidden rounded-2xl border-border/60 bg-background py-3 shadow-sm transition-all hover:shadow-md md:py-4">
+        <CardContent className="flex flex-col gap-4 px-4 md:px-4">
           <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-5 md:gap-6">
-            <div className="relative col-span-2 flex aspect-[16/9] w-full justify-center overflow-hidden rounded-md">
+            <div className="relative col-span-2 flex aspect-[16/9] w-full justify-center overflow-hidden rounded-md border border-border">
               <motion.img
                 variants={fadeInUp}
                 src={project.imageUrl}
                 alt={project.title}
                 loading="lazy"
-                className="object-fit h-full w-full rounded-md border border-border"
+                className="object-fit rounded-mdborder-border h-full w-full"
                 whileHover={
                   !prefersReduced ? { scale: 1.05, y: -3 } : undefined
                 }
@@ -139,49 +139,51 @@ export default function ProjectCard({ project, className }: Props) {
                 {project.description}
               </motion.div>
 
-              <motion.div
-                className="flex flex-wrap gap-3"
-                variants={fadeInUp}
-              >
-                {project.repoUrl && (
-                  <Button
-                    asChild
-                    size="sm"
-                    variant="outliner"
-                  >
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noreferrer"
+              {(project.repoUrl || project.liveUrl) && (
+                <motion.div
+                  className="flex flex-wrap gap-3"
+                  variants={fadeInUp}
+                >
+                  {project.repoUrl && (
+                    <Button
+                      asChild
+                      size="sm"
+                      variant="outliner"
                     >
-                      <Code2 className="size-4" />
-                      View Repository
-                    </a>
-                  </Button>
-                )}
-                {project.liveUrl && (
-                  <Button
-                    variant="candy"
-                    asChild
-                    size="sm"
-                  >
-                    <a
-                      href={project.liveUrl}
-                      target={
-                        isExternalUrl(project.liveUrl) ? '_blank' : '_self'
-                      }
-                      rel={
-                        isExternalUrl(project.liveUrl)
-                          ? 'noreferrer'
-                          : 'noopener'
-                      }
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <Code2 className="size-4" />
+                        View Repository
+                      </a>
+                    </Button>
+                  )}
+                  {project.liveUrl && (
+                    <Button
+                      variant="candy"
+                      asChild
+                      size="sm"
                     >
-                      <ExternalLink className="size-4" />
-                      Live Demo
-                    </a>
-                  </Button>
-                )}
-              </motion.div>
+                      <a
+                        href={project.liveUrl}
+                        target={
+                          isExternalUrl(project.liveUrl) ? '_blank' : '_self'
+                        }
+                        rel={
+                          isExternalUrl(project.liveUrl)
+                            ? 'noreferrer'
+                            : 'noopener'
+                        }
+                      >
+                        <ExternalLink className="size-4" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
+                </motion.div>
+              )}
             </MotionOnVisible>
           </div>
 

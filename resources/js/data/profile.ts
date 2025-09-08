@@ -25,9 +25,8 @@ export const profile = {
     'Laravel Specialist',
     'React Developer',
     'Mobile Developer',
-    'Technical Lead',
-    'DevOps Enthuasiast',
-    'Avid Reader',
+    'DevOps Engineer',
+    'Passionate Reader',
   ],
   status: 'Available for Hire',
   description:

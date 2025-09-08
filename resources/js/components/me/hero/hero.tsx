@@ -1,6 +1,7 @@
 'use client';
 
 import { MotionOnVisible } from '@/components/motion/motion-on-visible';
+import { TypingText } from '@/components/shadcn-io/typing-text';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { profile } from '@/data/profile';
@@ -51,7 +52,15 @@ export default function Hero() {
             variants={blurUp}
             className="text-2xl font-semibold text-pretty text-brand sm:text-3xl lg:text-4xl"
           >
-            {profile.role}
+            <TypingText
+              text={profile.roles}
+              className="text-2xl font-semibold text-pretty text-brand sm:text-3xl lg:text-4xl"
+              duration={75}
+              loop={true}
+              holdDelay={2000}
+              cursor={true}
+              cursorClassName="h-8 ml-1"
+            />
           </motion.h2>
 
           <motion.p
