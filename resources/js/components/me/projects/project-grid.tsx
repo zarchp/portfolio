@@ -56,7 +56,7 @@ export default function ProjectGrid({ project, className }: Props) {
               alt={project.title}
               loading="lazy"
               className="object-fit h-full w-full rounded-md"
-              whileHover={!prefersReduced ? { scale: 1.05, y: -3 } : undefined}
+              whileHover={!prefersReduced ? { scale: 1.03, y: -3 } : undefined}
               transition={{ type: 'spring', stiffness: 140, damping: 20 }}
             />
           </div>

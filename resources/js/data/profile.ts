@@ -26,6 +26,7 @@ export const profile = {
     'React Developer',
     'Mobile Developer',
     'DevOps Engineer',
+    'Vibe Code Cleanup Specialist',
     'Passionate Reader',
   ],
   status: 'Available for Hire',

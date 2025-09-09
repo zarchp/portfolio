@@ -255,6 +255,45 @@ const gridProjects: Project[] = [
     tags: ['Web App', 'Dashboard'],
     techStacks: ['Laravel', 'AWS'],
   },
+  {
+    id: 'playground',
+    title: 'Playground',
+    subtitle: 'Interactive Demos & Experiments',
+    description:
+      'A dedicated space for showcasing interactive web applications and experiments. It highlights mini projects such as games, utilities, and creative tools, demonstrating technical expertise while exploring innovative ideas.',
+    imageUrl: '/images/projects/playground.png',
+    liveUrl: null,
+    repoUrl: null,
+    status: 'live',
+    tags: ['Web App', 'Experimental'],
+    techStacks: ['Laravel', 'React'],
+  },
+  {
+    id: 'yaitu',
+    title: 'Yaitu.id',
+    subtitle: 'Food Delivery for Offices',
+    description:
+      'A food delivery app for office areas and foodcourts, using the nearest couriers (internal staff) for faster service. It includes a landing page, a management dashboard, and an Android app on the Play Store for customers and couriers.',
+    imageUrl: '/images/projects/yaitu.png',
+    liveUrl: null,
+    repoUrl: null,
+    status: 'offline',
+    tags: ['Web App', 'Mobile'],
+    techStacks: ['Laravel', 'Android'],
+  },
+  {
+    id: 'gbc',
+    title: 'Grosir Bersama',
+    subtitle: 'Wholesale e-Commerce',
+    description:
+      'A wholesale e-commerce platform based in Tanah Abang, Jakarta. It provides a digital marketplace for fashion and apparel, enabling merchants and buyers to browse, order, and manage wholesale purchases online with ease.',
+    imageUrl: '/images/projects/gbc.png',
+    liveUrl: null,
+    repoUrl: null,
+    status: 'offline',
+    tags: ['Web App', 'e-Commerce'],
+    techStacks: ['CS-Cart'],
+  },
 ];
 
 export default function Projects() {
