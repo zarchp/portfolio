@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6"
+      className="relative z-20 flex min-h-screen items-center justify-center overflow-hidden bg-background px-6"
     >
       <InteractiveGrid />
 

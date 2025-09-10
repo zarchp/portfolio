@@ -47,7 +47,7 @@ export default function ProjectGrid({ project, className }: Props) {
       variants={fadeInUp}
       className={cn(className)}
     >
-      <Card className="group overflow-hidden rounded-2xl border-border/60 bg-background py-3 shadow-sm transition-all hover:shadow-md md:py-4">
+      <Card className="group overflow-hidden rounded-2xl border-border/60 bg-background/70 py-3 shadow-sm backdrop-blur-md transition-all hover:shadow-md md:py-4">
         <CardContent className="flex flex-col gap-4 px-4 md:px-4">
           <div className="relative flex aspect-[16/9] w-full justify-center overflow-hidden rounded-md border border-border">
             <motion.img

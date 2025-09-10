@@ -1,0 +1,56 @@
+export default function DottedGrid() {
+  return (
+    <svg
+      aria-hidden
+      className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
+    >
+      <defs>
+        <pattern
+          id="dot"
+          x="0"
+          y="0"
+          width="24"
+          height="24"
+          patternUnits="userSpaceOnUse"
+        >
+          <circle
+            r="1.2"
+            cx="1.2"
+            cy="1.2"
+            className="fill-stone-300/60 dark:fill-stone-700/60"
+          />
+        </pattern>
+      </defs>
+      <rect
+        width="100%"
+        height="100%"
+        fill="url(#dot)"
+      />
+      <rect
+        width="100%"
+        height="100%"
+        fill="url(#fade)"
+      />
+      <defs>
+        <linearGradient
+          id="fade"
+          x1="0"
+          y1="0"
+          x2="0"
+          y2="1"
+        >
+          <stop
+            offset="0"
+            stopColor="white"
+            stopOpacity="0.6"
+          />
+          <stop
+            offset="1"
+            stopColor="white"
+            stopOpacity="0"
+          />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}

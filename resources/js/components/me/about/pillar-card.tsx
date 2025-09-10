@@ -18,7 +18,7 @@ export function PillarCard({
   return (
     <motion.div
       variants={fadeInUp}
-      className={`flex items-center justify-center gap-4 rounded-lg bg-card p-4 ${className}`}
+      className={`flex items-center justify-center gap-4 rounded-lg bg-card/80 px-4 py-6 ${className}`}
     >
       <div>{icon}</div>
       <div>

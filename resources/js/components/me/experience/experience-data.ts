@@ -27,10 +27,10 @@ export const experiencesSeed: ExperienceItem[] = [
       'AWS',
     ],
     achievements: [
-      'Led development of a microservices architecture serving 1M+ users',
-      'Reduced application load time by 40% through performance optimization',
-      'Mentored 5 junior developers and established coding standards',
-      'Architected and implemented real-time collaboration features',
+      'Delivered 10+ web apps, from requirements gathering to deployment and maintenance.',
+      'Collaborated directly with clients to translate business requirements into scalable technical solutions, ensuring alignment with goals and timelines',
+      'Managed the end-to-end development lifecycle, including architecture design, database modeling, testing, deployment, and ongoing support',
+      'Improved system performance and scalability by applying modern design patterns, cloud deployment strategies, and automated testing practices',
     ],
   },
   {
@@ -52,10 +52,10 @@ export const experiencesSeed: ExperienceItem[] = [
       'GCP',
     ],
     achievements: [
-      'Led development of a microservices architecture serving 1M+ users',
-      'Reduced application load time by 40% through performance optimization',
-      'Mentored 5 junior developers and established coding standards',
-      'Architected and implemented real-time collaboration features',
+      'Led development teams with Scrum practices to consistently deliver enterprise projects on time and with high quality',
+      'Developed and maintained enterprise systems including Generate Affair Services and Employee Condition Monitoring for PT SMI, as well as the Office Supplies & Asset Management System for PT Bank Mandiri Taspen',
+      'Strengthened code quality, security, and deployment pipelines by introducing code reviews, automated testing, and resolving enterprise penetration testing issues',
+      'Collaborated closely with stakeholders and project managers, translating business requirements into scalable technical solutions',
     ],
   },
   {
@@ -79,10 +79,10 @@ export const experiencesSeed: ExperienceItem[] = [
       'GCP',
     ],
     achievements: [
-      'Built MVP from scratch that secured $2M Series A funding',
-      'Implemented automated testing pipeline reducing bugs by 60%',
-      'Designed and developed RESTful APIs serving 100K+ requests daily',
-      'Collaborated with product team to deliver features ahead of schedule',
+      'Developed the Asemka Company Profile and Operational System to streamline and support core business operations',
+      'Delivered client-facing and internal projects with clean, maintainable code and timely releases',
+      'Led fellow developers by providing technical guidance, mentoring, and ensuring smooth delivery across project lifecycles',
+      'Improved system performance and scalability by implementing best practices in architecture, database optimization, and cloud deployment (AWS)',
     ],
   },
   {
@@ -94,10 +94,10 @@ export const experiencesSeed: ExperienceItem[] = [
     location: 'On-site',
     techStacks: ['CS-Cart', 'Laravel', 'jQuery', 'Bootstrap', 'MySQL'],
     achievements: [
-      'Developed responsive web applications for 50+ enterprise clients',
-      'Improved code quality by implementing comprehensive testing suite',
-      'Created reusable component library used across multiple projects',
-      'Optimized bundle size resulting in 25% faster page load times',
+      'Contributed to the development of GrosirBersama.com, enhancing core features for an e-commerce platform',
+      'Integrated third-party payment gateways, ensuring secure and seamless online transactions',
+      'Designed and developed APIs for external vendors, enabling smooth system integrations',
+      'Strengthened teamwork, communication, and presentation skills by actively contributing to cross-functional collaboration',
     ],
   },
   {
@@ -109,10 +109,10 @@ export const experiencesSeed: ExperienceItem[] = [
     location: 'On-site',
     techStacks: ['Yii', 'Laravel', 'jQuery', 'Bootstrap', 'MySQL'],
     achievements: [
-      'Delivered 30+ client websites with pixel-perfect designs',
-      'Learned modern development practices and version control',
-      'Contributed to cross-browser compatibility and accessibility improvements',
-      'Participated in agile development process and client communications',
+      'Contributed as a Full-Stack Developer, building both front-end interfaces and back-end features for client projects',
+      'Developed a Zakat Calculator web application integrated with a kiosk-style standing shelf (ATM-like machine)',
+      'Learned and applied modern web development practices, version control, and teamwork in real projects',
+      'Received positive recognition from supervisors for strong performance, adaptability, and fast learning during vocational program',
     ],
   },
 ];

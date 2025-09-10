@@ -155,7 +155,7 @@ export default function FloatingNavbar() {
 
   return (
     <nav
-      className={`fixed bottom-4 left-1/2 z-50 -translate-x-1/2 transition-all duration-300 md:bottom-6 ${
+      className={`fixed bottom-2 left-1/2 z-50 -translate-x-1/2 transition-all duration-300 md:bottom-6 ${
         scrolled ? 'scale-[.8] md:scale-[.95]' : 'scale-[.85] md:scale-100'
       }`}
       aria-label="Site navigation"

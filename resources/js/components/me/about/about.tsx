@@ -59,7 +59,7 @@ export default function About() {
             <div className="md:col-span-2">
               <MotionOnVisible
                 variants={fadeInRight}
-                className="rounded-xl border p-6 shadow-sm backdrop-blur"
+                className="rounded-xl border bg-background/70 p-6 shadow-sm backdrop-blur-md"
               >
                 <MotionOnVisible variants={staggerContainer(0.15)}>
                   <motion.div

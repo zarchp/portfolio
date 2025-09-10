@@ -6,7 +6,7 @@ export type Project = {
   imageUrl: string;
   repoUrl?: string | null;
   liveUrl?: string | null;
-  status: 'live' | 'offline' | 'deprecated';
+  status: 'live' | 'archived' | 'deprecated';
   tags: string[];
   keyFeatures?: string[];
   deliverables?: string[];

@@ -31,8 +31,8 @@ export function StackCard({
   return (
     <div
       className={cn(
-        'group relative flex flex-col items-center gap-2 rounded-xl border border-border/60 text-center',
-        'transitio p-4 shadow-sm',
+        'group relative flex flex-col items-center gap-2 rounded-xl border border-border/60 bg-background/70 text-center backdrop-blur-md',
+        'p-4 shadow-sm transition',
         'transition-all duration-200 ease-out',
         'hover:shadow-lg',
         'focus-visible:ring-2 focus-visible:ring-brand/60 focus-visible:outline-none',

@@ -30,7 +30,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="relative border-t border-border">
       <div className="container mx-auto px-4 pt-4 pb-20">
         <div className="flex flex-col items-center gap-4">
           <SocialLinks

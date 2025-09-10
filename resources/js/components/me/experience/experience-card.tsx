@@ -60,7 +60,7 @@ export function ExperienceCard({ item, index, isLast, onToggle }: Props) {
         <Collapsible
           open={item.isOpen}
           onOpenChange={onToggle}
-          className="flex flex-col gap-6 rounded-xl border border-border bg-background px-4 py-3 shadow-sm sm:px-6 sm:py-4"
+          className="flex flex-col gap-6 rounded-xl border border-border bg-background/70 px-4 py-3 shadow-sm backdrop-blur-md sm:px-6 sm:py-4"
         >
           <div className="flex items-start justify-between">
             <div className="flex flex-col gap-1">

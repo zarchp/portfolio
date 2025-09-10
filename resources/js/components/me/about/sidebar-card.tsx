@@ -18,7 +18,7 @@ export function SidebarCard({
   return (
     <motion.section
       variants={fadeInLeft}
-      className={`rounded-xl border border-border p-4 shadow-sm backdrop-blur ${className}`}
+      className={`rounded-xl border border-border bg-background/70 p-4 shadow-sm backdrop-blur-md ${className}`}
     >
       <div className="mb-3 flex items-center gap-2 border-b border-border pb-3">
         {icon}

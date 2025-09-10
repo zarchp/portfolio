@@ -1,14 +1,25 @@
 import { cn } from '@/lib/utils';
 import * as React from 'react';
 
+type SectionProps = React.PropsWithChildren<{
+  id: string;
+  bg?: 'none' | 'radial' | 'dots' | 'grid' | 'aurora' | 'particles';
+  className?: string;
+}>;
+
 type DivProps = React.ComponentPropsWithoutRef<'div'>;
 
-function Section({ className, children, ...props }: DivProps) {
+function Section({ className, children, bg = 'none', ...props }: SectionProps) {
   return (
     <div
-      className={cn('bg-background py-16', className)}
+      className={cn('relative', className)}
       {...props}
     >
+      {/* {bg === 'radial' && <RadialSpot />}
+      {bg === 'dots' && <DottedGrid />}
+      {bg === 'grid' && <FaintGrid />}
+      {bg === 'aurora' && <AuroraBeams />}
+      {bg === 'particles' && <Particles />} */}
       {children}
     </div>
   );
@@ -17,7 +28,7 @@ function Section({ className, children, ...props }: DivProps) {
 function SectionContainer({ className, children, ...props }: DivProps) {
   return (
     <div
-      className={cn('container mx-auto max-w-5xl px-6', className)}
+      className={cn('container mx-auto max-w-5xl px-6 py-16', className)}
       {...props}
     >
       {children}
