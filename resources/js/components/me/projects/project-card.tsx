@@ -116,8 +116,13 @@ export default function ProjectCard({ project, className }: Props) {
                   <Star className="size-4" />
                   Featured
                 </Badge>
-                {project.tags?.map((tag) => (
-                  <Badge variant="outline">{tag}</Badge>
+                {project.tags?.map((tag, index) => (
+                  <Badge
+                    variant="outline"
+                    key={index}
+                  >
+                    {tag}
+                  </Badge>
                 ))}
               </motion.div>
 

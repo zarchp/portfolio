@@ -12,14 +12,14 @@ export default function Me() {
   return (
     <main className="relative min-h-screen">
       <BubbleBackground
-        className="fixed inset-0 flex items-center justify-center bg-background opacity-15"
+        className="fixed inset-0 flex items-center justify-center bg-background transition-all"
         colors={{
-          first: '242,128,188',
-          second: '198,150,255',
-          third: '145,182,255',
-          fourth: '255,145,145',
-          fifth: '255,180,135',
-          sixth: '150,235,220',
+          first: 'var(--bubble-1)',
+          second: 'var(--bubble-2)',
+          third: 'var(--bubble-3)',
+          fourth: 'var(--bubble-4)',
+          fifth: 'var(--bubble-5)',
+          sixth: 'var(--bubble-6)',
         }}
       />
       <FloatingNavbar />

@@ -80,6 +80,13 @@
   --text-primary: var(--color-smooth-200);
   --text-quaternary: var(--color-smooth-1000);
   --radius: 0.625rem;
+
+  --bubble-1: 253, 230, 236;
+  --bubble-2: 243, 235, 255;
+  --bubble-3: 230, 240, 255;
+  --bubble-4: 255, 235, 235;
+  --bubble-5: 255, 240, 230;
+  --bubble-6: 230, 250, 247;
 }
 
 .dark {
@@ -145,6 +152,13 @@
   --border: var(--color-smooth-300);
   --text-primary: var(--color-smooth-200);
   --text-quaternary: var(--color-smooth-1000);
+
+  --bubble-1: 60, 40, 50;
+  --bubble-2: 55, 45, 70;
+  --bubble-3: 40, 55, 70;
+  --bubble-4: 70, 45, 45;
+  --bubble-5: 70, 55, 40;
+  --bubble-6: 40, 65, 60;
 }
 
 @theme {
