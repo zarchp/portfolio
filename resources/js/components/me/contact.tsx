@@ -31,9 +31,6 @@ import {
 
 import { useForm, usePage } from '@inertiajs/react';
 
-// type-safe flash props (optional)
-// type Flash = { success?: string; error?: string };
-
 export default function Contact() {
   // Inertia form with initial values
   const form = useForm({
