@@ -12,6 +12,7 @@ import { fadeInUp, slideInUp, staggerContainer } from '@/lib/motion';
 import { SiWhatsapp } from '@icons-pack/react-simple-icons';
 import {
   CheckCircle2,
+  CircleAlert,
   Download,
   Mail,
   MessageSquareText,
@@ -32,26 +33,22 @@ import {
 import { useForm, usePage } from '@inertiajs/react';
 
 export default function Contact() {
-  // Inertia form with initial values
   const form = useForm({
     name: '',
     email: '',
     message: '',
-    // honeypot field for spam bots
-    website: '', // must stay empty
+    website: '', // honeypot
   });
 
   const { props } = usePage<{ flash: { success?: string; error?: string } }>();
   const flash = props.flash;
 
-  // submit handler: post to Laravel route `/contact`
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     form.post('/contact', {
       preserveScroll: true,
       onSuccess: () => {
-        // clear fields on success and let flash message render
         form.reset('name', 'email', 'message', 'website');
       },
     });
@@ -81,12 +78,20 @@ export default function Contact() {
             className="mx-auto flex max-w-xl flex-col gap-12"
           >
             <motion.div variants={slideInUp}>
-              {/* success banner from Laravel flash */}
               {flash?.success && (
                 <div className="mb-6 rounded-xl border border-success/30 bg-success/10 p-4 text-center text-success">
                   <div className="flex items-center justify-center gap-2">
-                    <CheckCircle2 className="size-5" />
+                    <CheckCircle2 className="size-10 md:size-5" />
                     <span>{flash.success}</span>
+                  </div>
+                </div>
+              )}
+
+              {flash?.error && (
+                <div className="mb-6 rounded-xl border border-destructive/30 bg-destructive/10 p-4 text-center text-destructive-foreground">
+                  <div className="flex items-center justify-center gap-2">
+                    <CircleAlert className="size-10 md:size-5" />
+                    <span>{flash.error}</span>
                   </div>
                 </div>
               )}
@@ -118,7 +123,7 @@ export default function Contact() {
                       className="bg-background/70"
                     />
                     {form.errors.name && (
-                      <p className="text-xs text-destructive">
+                      <p className="text-xs text-destructive-foreground">
                         {form.errors.name}
                       </p>
                     )}
@@ -136,7 +141,7 @@ export default function Contact() {
                       className="bg-background/70"
                     />
                     {form.errors.email && (
-                      <p className="text-xs text-destructive">
+                      <p className="text-xs text-destructive-foreground">
                         {form.errors.email}
                       </p>
                     )}
@@ -155,7 +160,7 @@ export default function Contact() {
                     className="dark:bg-backround/70 h-32 resize-none bg-background/70"
                   />
                   {form.errors.message && (
-                    <p className="text-xs text-destructive">
+                    <p className="text-xs text-destructive-foreground">
                       {form.errors.message}
                     </p>
                   )}
