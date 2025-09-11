@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { useAppearance } from '@/hooks/use-appearance';
 import { Moon, Sun } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useEffect, useMemo, useRef, useState } from 'react';
@@ -17,7 +18,7 @@ const navItems: NavItem[] = [
 ];
 
 export default function FloatingNavbar() {
-  const [isDark, setIsDark] = useState(true);
+  const { appearance, updateAppearance } = useAppearance();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('home');
 
@@ -133,13 +134,6 @@ export default function FloatingNavbar() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /* --------------------------- Handlers --------------------------- */
-
-  const toggleTheme = () => {
-    setIsDark((v) => !v);
-    document.documentElement.classList.toggle('dark');
-  };
-
   const scrollToSection = (href: string, i: number) => {
     const el = document.querySelector(href);
     if (!el) return;
@@ -156,7 +150,7 @@ export default function FloatingNavbar() {
   return (
     <nav
       className={`fixed bottom-2 left-1/2 z-50 -translate-x-1/2 transition-all duration-300 md:bottom-6 ${
-        scrolled ? 'scale-[.8] md:scale-[.95]' : 'scale-[.85] md:scale-100'
+        scrolled ? 'scale-[.9] md:scale-[.95]' : 'scale-[.95] md:scale-100'
       }`}
       aria-label="Site navigation"
     >
@@ -220,11 +214,13 @@ export default function FloatingNavbar() {
           <Button
             variant="ghost"
             size="sm"
-            onClick={toggleTheme}
+            onClick={() =>
+              updateAppearance(appearance === 'dark' ? 'light' : 'dark')
+            }
             className="relative z-10 ml-1 h-9 w-9 rounded-full p-0 text-muted-foreground hover:bg-accent/50"
             aria-label="Toggle theme"
           >
-            {isDark ? (
+            {appearance === 'dark' ? (
               <Sun className="h-4 w-4" />
             ) : (
               <Moon className="h-4 w-4" />
