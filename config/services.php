@@ -41,4 +41,10 @@ return [
         'user_id' => env('GOODREADS_USER_ID'),
     ],
 
+    'discord' => [
+        'contact_webhook'  => env('DISCORD_CONTACT_WEBHOOK'),
+        'contact_username' => env('DISCORD_CONTACT_USERNAME', 'Portfolio Contact'),
+        'contact_avatar'   => env('DISCORD_CONTACT_AVATAR'),
+    ],
+
 ];

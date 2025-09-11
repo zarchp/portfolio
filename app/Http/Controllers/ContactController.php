@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Data\ContactData;
 use App\Models\Contact;
+use App\Notifications\ContactReceivedNotification;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,9 @@ final class ContactController
      */
     public function store(ContactData $contactData): RedirectResponse
     {
-        \App\Models\Contact::query()->create($contactData->toArray());
+        $contact = Contact::query()->create($contactData->toArray());
+
+        $contact->notify(new ContactReceivedNotification($contact));
 
         return back()->with('success', 'Thanks! Your message has been sent. I’ll get back to you soon.');
     }
