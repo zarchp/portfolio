@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition } from './../../../../wayfinder'
 /**
 * @see \App\Http\Controllers\GoodreadsController::__invoke
- * @see app/Http/Controllers/GoodreadsController.php:16
+ * @see app/Http/Controllers/GoodreadsController.php:21
  * @route '/api/goodreads/read'
  */
 const GoodreadsController = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ GoodreadsController.definition = {
 
 /**
 * @see \App\Http\Controllers\GoodreadsController::__invoke
- * @see app/Http/Controllers/GoodreadsController.php:16
+ * @see app/Http/Controllers/GoodreadsController.php:21
  * @route '/api/goodreads/read'
  */
 GoodreadsController.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ GoodreadsController.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\GoodreadsController::__invoke
- * @see app/Http/Controllers/GoodreadsController.php:16
+ * @see app/Http/Controllers/GoodreadsController.php:21
  * @route '/api/goodreads/read'
  */
 GoodreadsController.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ GoodreadsController.get = (options?: RouteQueryOptions): RouteDefinition<'get'> 
 })
 /**
 * @see \App\Http\Controllers\GoodreadsController::__invoke
- * @see app/Http/Controllers/GoodreadsController.php:16
+ * @see app/Http/Controllers/GoodreadsController.php:21
  * @route '/api/goodreads/read'
  */
 GoodreadsController.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({

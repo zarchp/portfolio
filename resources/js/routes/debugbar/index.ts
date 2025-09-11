@@ -107,11 +107,11 @@ clockwork.head = (args: { id: string | number } | [id: string | number ] | strin
     method: 'head',
 })
 const debugbar = {
-    openhandler,
-clockwork,
-assets,
-cache,
-queries,
+    openhandler: Object.assign(openhandler, openhandler),
+clockwork: Object.assign(clockwork, clockwork),
+assets: Object.assign(assets, assets),
+cache: Object.assign(cache, cache),
+queries: Object.assign(queries, queries),
 }
 
 export default debugbar

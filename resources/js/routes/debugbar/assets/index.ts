@@ -85,8 +85,8 @@ js.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     method: 'head',
 })
 const assets = {
-    css,
-js,
+    css: Object.assign(css, css),
+js: Object.assign(js, js),
 }
 
 export default assets

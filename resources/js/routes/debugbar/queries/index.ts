@@ -33,7 +33,7 @@ explain.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
     method: 'post',
 })
 const queries = {
-    explain,
+    explain: Object.assign(explain, explain),
 }
 
 export default queries

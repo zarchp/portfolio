@@ -116,7 +116,7 @@ function BubbleBackground({
 
       <div
         className="absolute inset-0"
-        style={{ filter: 'url(#goo) blur(50px)' }}
+        style={{ filter: 'url(#goo) blur(40px)' }}
       >
         <motion.div
           className="absolute top-[10%] left-[10%] size-[80%] rounded-full bg-[radial-gradient(circle_at_center,rgba(var(--first-color),0.8)_0%,rgba(var(--first-color),0)_50%)] mix-blend-hard-light"

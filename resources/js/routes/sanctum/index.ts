@@ -42,7 +42,7 @@ csrfCookie.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     method: 'head',
 })
 const sanctum = {
-    csrfCookie,
+    csrfCookie: Object.assign(csrfCookie, csrfCookie),
 }
 
 export default sanctum

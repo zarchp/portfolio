@@ -54,7 +54,7 @@ deleteMethod.delete = (args: { key: string | number, tags?: string | number } | 
     method: 'delete',
 })
 const cache = {
-    delete: deleteMethod,
+    delete: Object.assign(deleteMethod, deleteMethod),
 }
 
 export default cache

@@ -1,14 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
+use DateTimeImmutable;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use SimpleXMLElement;
 use Symfony\Component\HttpFoundation\Response;
+use Throwable;
 
-class GoodreadsController
+final class GoodreadsController
 {
     /**
      * Handle the incoming request.
@@ -20,16 +25,16 @@ class GoodreadsController
             return response()->json(['error' => 'GOODREADS_USER_ID not configured'], Response::HTTP_BAD_REQUEST);
         }
 
-        $key = "goodreads:read:$userId:v1";
-        $data = Cache::flexible($key, [3300, 3600], function () use ($userId) {
+        $key = "goodreads:read:{$userId}:v1";
+        $data = Cache::flexible($key, [3300, 3600], function () use ($userId): array {
             $rssUrl = "https://www.goodreads.com/review/list_rss/{$userId}?shelf=read&sort=date_read";
             try {
                 $resp = Http::timeout(10)->get($rssUrl);
-            } catch (ConnectionException $e) {
+            } catch (ConnectionException) {
                 return ['error' => 'Failed to reach Goodreads'];
             }
 
-            if (!$resp->ok()) {
+            if (! $resp->ok()) {
                 return ['error' => 'Goodreads responded with ' . $resp->status()];
             }
 
@@ -37,6 +42,7 @@ class GoodreadsController
             if ($xml === false) {
                 return ['error' => 'Invalid RSS received'];
             }
+
             $xml = $this->simplexmlToArray($xml);
 
             // Goodreads RSS uses channel->item nodes
@@ -78,31 +84,18 @@ class GoodreadsController
         return response()->json($data, $status);
     }
 
-    private function toIsoDate(string $raw): ?string
-    {
-        $raw = trim($raw);
-        if ($raw === '' || $raw === 'null') return null;
-        // Handle common Goodreads formats (e.g., "Mon, 01 Jan 2024 00:00:00 -0700", "2024/01/01", etc.)
-        try {
-            $dt = new \DateTime($raw);
-            return $dt->format('Y-m-d');
-        } catch (\Throwable $e) {
-            return null;
-        }
-    }
-
-    function simplexmlToArray(\SimpleXMLElement $xml): array
+    public function simplexmlToArray(SimpleXMLElement $xml): array
     {
         $arr = [];
 
         foreach ($xml->children() as $key => $child) {
-            $value = $child->count() ? $this->simplexmlToArray($child) : (string) $child;
+            $value = $child->count() !== 0 ? $this->simplexmlToArray($child) : (string) $child;
 
             if (isset($arr[$key])) {
-                // Already set: convert to array of values
-                if (!is_array($arr[$key]) || !array_is_list($arr[$key])) {
+                if (! is_array($arr[$key]) || ! array_is_list($arr[$key])) {
                     $arr[$key] = [$arr[$key]];
                 }
+
                 $arr[$key][] = $value;
             } else {
                 $arr[$key] = $value;
@@ -114,5 +107,21 @@ class GoodreadsController
         }
 
         return $arr;
+    }
+
+    private function toIsoDate(string $raw): ?string
+    {
+        $raw = mb_trim($raw);
+        if ($raw === '' || $raw === 'null') {
+            return null;
+        }
+
+        try {
+            $dt = new DateTimeImmutable($raw);
+
+            return $dt->format('Y-m-d');
+        } catch (Throwable) {
+            return null;
+        }
     }
 }

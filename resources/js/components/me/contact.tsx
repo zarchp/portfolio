@@ -1,3 +1,6 @@
+// ALWAYS WRITE IN ENGLISH COMMENT LINE AND IN ENGLISH CODE
+// Principal Engineer refactor: Inertia useForm + proper UX states
+
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -10,16 +13,11 @@ import { SiWhatsapp } from '@icons-pack/react-simple-icons';
 import {
   CheckCircle2,
   Download,
-  Github,
-  Linkedin,
   Mail,
   MessageSquareText,
-  Phone,
   SendHorizontal,
-  Twitter,
 } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useState } from 'react';
 import { MotionOnVisible } from '../motion/motion-on-visible';
 import {
   Section,
@@ -31,96 +29,36 @@ import {
   SectionTitle,
 } from './section';
 
+import { useForm, usePage } from '@inertiajs/react';
+
+// type-safe flash props (optional)
+// type Flash = { success?: string; error?: string };
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
+  // Inertia form with initial values
+  const form = useForm({
     name: '',
     email: '',
-    projectType: '',
-    budgetRange: '',
     message: '',
+    // honeypot field for spam bots
+    website: '', // must stay empty
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const { props } = usePage<{ flash: { success?: string; error?: string } }>();
+  const flash = props.flash;
+
+  // submit handler: post to Laravel route `/contact`
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after success message
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        projectType: '',
-        budgetRange: '',
-        message: '',
-      });
-    }, 3000);
-  };
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
-
-  const projectTypes = [
-    'Web Application',
-    'Mobile App',
-    'E-commerce Platform',
-    'API Development',
-    'Desktop Application',
-    'Consulting',
-    'Other',
-  ];
-
-  const budgetRanges = [
-    'Under $5K',
-    '$5K - $15K',
-    '$15K - $30K',
-    '$30K - $50K',
-    '$50K+',
-    'Hourly Rate',
-    'To be discussed',
-  ];
-
-  const preferredMethods = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'Primary',
-      description: 'Best for detailed discussions',
-    },
-    {
-      icon: Phone,
-      label: 'Video Call',
-      value: 'Available',
-      description: 'For complex project planning',
-    },
-  ];
-
-  const lookingFor = [
-    'Long-term partnerships',
-    'Interesting tech challenges',
-    'Remote-first opportunities',
-    'Full-stack projects',
-    'Modern tech stacks',
-    'Collaborative teams',
-  ];
-
-  const socialLinks = [
-    { icon: Github, label: 'GitHub', href: '#', handle: '@developer' },
-    { icon: Linkedin, label: 'LinkedIn', href: '#', handle: '/in/developer' },
-    { icon: Twitter, label: 'Twitter', href: '#', handle: '@developer' },
-  ];
+    form.post('/contact', {
+      preserveScroll: true,
+      onSuccess: () => {
+        // clear fields on success and let flash message render
+        form.reset('name', 'email', 'message', 'website');
+      },
+    });
+  }
 
   return (
     <Section id="contact">
@@ -146,84 +84,105 @@ export default function Contact() {
             className="mx-auto flex max-w-xl flex-col gap-12"
           >
             <motion.div variants={slideInUp}>
-              {isSubmitted ? (
-                <div className="py-12 text-center">
-                  <CheckCircle2 className="mx-auto mb-4 h-16 w-16 text-success" />
-                  <h4 className="mb-2 text-xl font-semibold">Message Sent!</h4>
-                  <p className="text-muted-foreground">
-                    Thanks for reaching out. I'll get back to you soon.
-                  </p>
+              {/* success banner from Laravel flash */}
+              {flash?.success && (
+                <div className="mb-6 rounded-xl border border-success/30 bg-success/10 p-4 text-center text-success">
+                  <div className="flex items-center justify-center gap-2">
+                    <CheckCircle2 className="size-5" />
+                    <span>{flash.success}</span>
+                  </div>
                 </div>
-              ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                >
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="flex flex-col gap-2">
-                      <Label htmlFor="name">Name *</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) =>
-                          handleInputChange('name', e.target.value)
-                        }
-                        placeholder="Your name"
-                        required
-                        className="bg-background dark:bg-input/30"
-                      />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <Label htmlFor="email">Email *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) =>
-                          handleInputChange('email', e.target.value)
-                        }
-                        placeholder="your@email.com"
-                        required
-                        className="bg-background dark:bg-input/30"
-                      />
-                    </div>
+              )}
+
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-6"
+                noValidate
+              >
+                <input
+                  type="text"
+                  name="website"
+                  value={form.data.website}
+                  onChange={(e) => form.setData('website', e.target.value)}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="flex flex-col gap-2">
+                    <Label htmlFor="name">Name *</Label>
+                    <Input
+                      id="name"
+                      value={form.data.name}
+                      onChange={(e) => form.setData('name', e.target.value)}
+                      placeholder="Your name"
+                      required
+                      className="bg-background/70"
+                    />
+                    {form.errors.name && (
+                      <p className="text-xs text-destructive">
+                        {form.errors.name}
+                      </p>
+                    )}
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <Label htmlFor="message">Message *</Label>
-                    <Textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) =>
-                        handleInputChange('message', e.target.value)
-                      }
-                      placeholder="How can i help you?"
-                      rows={8}
+                    <Label htmlFor="email">Email *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={form.data.email}
+                      onChange={(e) => form.setData('email', e.target.value)}
+                      placeholder="your@email.com"
                       required
-                      className="h-32 resize-none bg-background"
+                      className="bg-background/70"
                     />
+                    {form.errors.email && (
+                      <p className="text-xs text-destructive">
+                        {form.errors.email}
+                      </p>
+                    )}
                   </div>
+                </div>
 
-                  <div className="flex justify-center">
-                    <Button
-                      variant="candy"
-                      type="submit"
-                      size="lg"
-                      disabled={isSubmitting}
-                      className="group"
-                    >
-                      {isSubmitting ? (
-                        'Sending...'
-                      ) : (
-                        <>
-                          Send Message
-                          <SendHorizontal className="ml-2 h-4 w-4 duration-300 group-hover:translate-x-1" />
-                        </>
-                      )}
-                    </Button>
-                  </div>
-                </form>
-              )}
+                <div className="flex flex-col gap-2">
+                  <Label htmlFor="message">Message *</Label>
+                  <Textarea
+                    id="message"
+                    value={form.data.message}
+                    onChange={(e) => form.setData('message', e.target.value)}
+                    placeholder="How can I help you?"
+                    rows={8}
+                    required
+                    className="dark:bg-backround/70 h-32 resize-none bg-background/70"
+                  />
+                  {form.errors.message && (
+                    <p className="text-xs text-destructive">
+                      {form.errors.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="flex justify-center">
+                  <Button
+                    variant="candy"
+                    type="submit"
+                    size="lg"
+                    disabled={form.processing}
+                    className="group"
+                  >
+                    {form.processing ? (
+                      'Sending...'
+                    ) : (
+                      <>
+                        Send Message
+                        <SendHorizontal className="ml-2 h-4 w-4 duration-300 group-hover:translate-x-1" />
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </form>
             </motion.div>
 
             <motion.div
@@ -235,6 +194,7 @@ export default function Contact() {
                 <Button
                   variant="outliner"
                   size="lg"
+                  asChild
                 >
                   <a
                     href="#"
@@ -250,6 +210,7 @@ export default function Contact() {
                 <Button
                   variant="outliner"
                   size="lg"
+                  asChild
                 >
                   <a
                     href={profile.links.whatsapp}
@@ -261,9 +222,11 @@ export default function Contact() {
                     Chat on Whatsapp
                   </a>
                 </Button>
+
                 <Button
                   variant="outliner"
                   size="lg"
+                  asChild
                 >
                   <a
                     href={`mailto:${profile.email}`}
