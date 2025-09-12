@@ -18,6 +18,7 @@
     "nativephp/mobile": "^1.9",
     "nunomaduro/essentials": "^0.1.0",
     "spatie/laravel-data": "^4.17",
+    "spatie/laravel-sitemap": "^7.3",
     "spatie/laravel-typescript-transformer": "^2.5",
     "tightenco/ziggy": "^2.4"
   },

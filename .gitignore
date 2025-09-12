@@ -25,3 +25,4 @@ yarn-error.log
 /.blueprint
 /coverage-report
 /components
+/public/sitemap.xml
