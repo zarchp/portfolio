@@ -1,9 +1,10 @@
 import { createInertiaApp } from '@inertiajs/react';
 import createServer from '@inertiajs/react/server';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import ReactDOMServer from 'react-dom/server';
 import { type RouteName, route } from 'ziggy-js';
+
+const pages = import.meta.glob('./pages/**/*.tsx', { eager: true });
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -12,11 +13,15 @@ createServer((page) =>
     page,
     render: ReactDOMServer.renderToString,
     title: (title) => (title ? `${title} - ${appName}` : appName),
-    resolve: (name) =>
-      resolvePageComponent(
-        `./pages/${name}.tsx`,
-        import.meta.glob('./pages/**/*.tsx'),
-      ),
+    // Eager resolver: bundle includes all pages; no network during SSR
+    resolve: (name) => {
+      const mod = pages[`./pages/${name}.tsx`];
+      if (!mod) {
+        throw new Error(`[SSR] Page not found: ./pages/${name}.tsx`);
+      }
+      // Vite eager modules export default component
+      return mod as any;
+    },
     setup: ({ App, props }) => {
       const queryClient = new QueryClient({
         defaultOptions: {
@@ -28,6 +33,7 @@ createServer((page) =>
           },
         },
       });
+
       /* eslint-disable */
       // @ts-expect-error
       global.route<RouteName> = (name, params, absolute) =>
