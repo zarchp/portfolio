@@ -19,7 +19,6 @@ createServer((page) =>
       if (!mod) {
         throw new Error(`[SSR] Page not found: ./pages/${name}.tsx`);
       }
-      // Vite eager modules export default component
       return mod as any;
     },
     setup: ({ App, props }) => {
