@@ -64,19 +64,28 @@ export default function ProjectCard({ project, className }: Props) {
       <Card className="group overflow-hidden rounded-2xl border-border/60 bg-background/70 py-3 shadow-sm backdrop-blur-md transition-all hover:shadow-md md:py-4">
         <CardContent className="flex flex-col gap-4 px-4 md:px-4">
           <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-5 md:gap-6">
-            <div className="relative col-span-2 flex aspect-[16/9] w-full justify-center overflow-hidden rounded-md border border-border">
+            <picture className="relative col-span-2 flex aspect-[16/9] w-full justify-center overflow-hidden rounded-md border border-border">
+              <source
+                srcSet={project.imageUrl + '.avif'}
+                type="image/avif"
+              />
+              <source
+                srcSet={project.imageUrl + '.webp'}
+                type="image/webp"
+              />
               <motion.img
                 variants={fadeInUp}
-                src={project.imageUrl}
+                src={project.imageUrl + '.jpg'}
                 alt={project.title}
                 loading="lazy"
+                decoding="async"
                 className="object-fit rounded-mdborder-border h-full w-full"
                 whileHover={
                   !prefersReduced ? { scale: 1.05, y: -3 } : undefined
                 }
                 transition={{ type: 'spring', stiffness: 140, damping: 20 }}
               />
-            </div>
+            </picture>
 
             <MotionOnVisible
               variants={staggerContainer(0.1)}

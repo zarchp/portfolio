@@ -27,7 +27,6 @@ export default function Me() {
       <Projects />
       <Experience />
       <Stacks />
-      {/* <Testimonials /> */}
       <About />
       <Contact />
       <Footer />

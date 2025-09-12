@@ -39,7 +39,10 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <Section id="about">
+    <Section
+      id="about"
+      className="section-deferred"
+    >
       <SectionContainer>
         <MotionOnVisible variants={fadeInUp}>
           <SectionHeader>

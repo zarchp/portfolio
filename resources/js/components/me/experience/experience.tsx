@@ -16,7 +16,10 @@ import { ExperienceTimeline } from './experience-timeline';
 
 export default function ExperienceSection() {
   return (
-    <Section id="experience">
+    <Section
+      id="experience"
+      className="section-deferred"
+    >
       <SectionContainer>
         <MotionOnVisible variants={fadeInUp}>
           <SectionHeader>

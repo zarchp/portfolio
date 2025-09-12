@@ -45,7 +45,6 @@ final class GoodreadsController
 
             $xml = $this->simplexmlToArray($xml);
 
-            // Goodreads RSS uses channel->item nodes
             $items = [];
             foreach ($xml['channel']['item'] as $index => $item) {
                 if ($index === 5) {
@@ -56,7 +55,7 @@ final class GoodreadsController
                 $link = (string) $item['link'];
                 $authorName = (string) $item['author_name'];
                 $description = (string) $item['book_description'];
-                $image = (string) $item['book_large_image_url'];
+                $image = (string) $item['book_medium_image_url'];
                 $userRating = (int) ($item['user_rating'] ?? 0);
                 $userReadAt = (string) $item['user_read_at'];
                 $userDatedded = (string) $item['user_date_added'];

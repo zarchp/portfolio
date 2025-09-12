@@ -90,6 +90,7 @@ export default function GoodreadsReadRecent({ className }: Props) {
                         alt={b.title}
                         className="w-full rounded object-cover"
                         loading="lazy"
+                        decoding="async"
                       />
                     </TooltipTrigger>
                     <TooltipContent>{b.title}</TooltipContent>

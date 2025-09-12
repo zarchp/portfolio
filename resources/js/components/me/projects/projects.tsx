@@ -39,7 +39,7 @@ export default function ProjectsSection() {
   return (
     <Section
       id="projects"
-      bg="grid"
+      className="section-deferred"
     >
       <SectionContainer>
         <MotionOnVisible variants={fadeInUp}>
@@ -76,9 +76,9 @@ export default function ProjectsSection() {
               onClick={showMore}
               disabled={!canShowMore}
               variant="ghost"
-              className="group mx-auto flex items-center gap-2 rounded-full px-6 py-2 text-lg text-secondary-foreground transition-all hover:bg-brand-50 hover:text-brand"
+              className="group mx-auto flex items-center gap-2 rounded-full px-6 py-2 text-lg text-secondary-foreground transition-all hover:bg-brand-50 hover:text-brand disabled:opacity-100"
             >
-              {canShowMore ? 'Show More' : 'That’s my work so far 🚀'}
+              {canShowMore ? 'Show More' : 'More projects coming soon 🚀'}
               {canShowMore && (
                 <ChevronDown className="size-4 transition-transform group-hover:translate-y-0.5" />
               )}

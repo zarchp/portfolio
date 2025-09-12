@@ -40,7 +40,7 @@ export default function Hero() {
           </Badge>
         </motion.div>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 md:gap-6">
           <motion.h1
             variants={blurUp}
             className="text-5xl font-extrabold tracking-tight text-pretty sm:text-6xl lg:text-7xl"

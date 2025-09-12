@@ -55,7 +55,10 @@ export default function Contact() {
   }
 
   return (
-    <Section id="contact">
+    <Section
+      id="contact"
+      className="section-deferred"
+    >
       <SectionContainer>
         <MotionOnVisible variants={fadeInUp}>
           <SectionHeader>

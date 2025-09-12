@@ -9,6 +9,24 @@ declare(strict_types=1);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Portfolio of Anzar Syahid - Full-Stack Web Developer with 9+ years of experience. Specializing in Laravel, React, TypeScript, and modern web technologies. Explore projects, skills, and achievements.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ config('app.url') }}" />
+    <meta property="og:title" content="{{ config('app.name', 'Laravel') }}" />
+    <meta property="og:description"
+        content="Portfolio of Anzar Syahid - Full-Stack Web Developer with 9+ years of experience. Specializing in Laravel, React, TypeScript, and modern web technologies. Explore projects, skills, and achievements." />
+    <meta property="og:image" content="https://your-domain.tld/images/og-preview.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="{{ config('app.url') }}" />
+    <meta property="twitter:title" content="{{ config('app.name', 'Laravel') }}" />
+    <meta property="twitter:description"
+        content="Portfolio of Anzar Syahid - Full-Stack Web Developer with 9+ years of experience. Specializing in Laravel, React, TypeScript, and modern web technologies. Explore projects, skills, and achievements." />
+    <meta property="twitter:image" content="https://your-domain.tld/images/og-preview.png" />
 
     {{-- Inline script to detect system dark mode preference and apply it immediately --}}
     <script>
@@ -42,8 +60,7 @@ declare(strict_types=1);
     {{-- <link rel="icon" href="/favicon.svg" type="image/svg+xml"> --}}
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+    <link rel="preconnect" href="https://i.gr-assets.com">
 
     @routes
     @viteReactRefresh

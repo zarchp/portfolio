@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a95281ae8206d2e8a742ff1a1f6bef38",
+    "content-hash": "07417e08e7c9f43203d0f0875fc63f9b",
     "packages": [
         {
             "name": "amphp/amp",
@@ -4337,69 +4337,6 @@
             "time": "2025-01-27T14:24:01+00:00"
         },
         {
-            "name": "laravel/wayfinder",
-            "version": "v0.1.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/wayfinder.git",
-                "reference": "08285225df7f8a094789ad8f384ac6bad6712ff6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/wayfinder/zipball/08285225df7f8a094789ad8f384ac6bad6712ff6",
-                "reference": "08285225df7f8a094789ad8f384ac6bad6712ff6",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "^11.0|^12.0",
-                "illuminate/filesystem": "^11.0|^12.0",
-                "illuminate/routing": "^11.0|^12.0",
-                "illuminate/support": "^11.0|^12.0",
-                "php": "^8.2",
-                "phpstan/phpdoc-parser": "^2.3"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.21",
-                "orchestra/testbench": "^10.1 | ^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Wayfinder\\WayfinderServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Wayfinder\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Generate TypeScript representations of your Laravel actions and routes.",
-            "homepage": "https://github.com/laravel/wayfinder",
-            "keywords": [
-                "laravel",
-                "php",
-                "routes",
-                "typescript"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/wayfinder/issues",
-                "source": "https://github.com/laravel/wayfinder"
-            },
-            "time": "2025-09-08T17:03:10+00:00"
-        },
-        {
             "name": "league/commonmark",
             "version": "2.7.1",
             "source": {
@@ -4951,52 +4888,6 @@
             "time": "2024-12-08T08:18:47+00:00"
         },
         {
-            "name": "mantraideas/laravel-env-doctor",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/MantraIdeas/LaravelEnvDoctor.git",
-                "reference": "7ed6d2d5f3cf3f2c026bf00ab3207ba89286eff3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/MantraIdeas/LaravelEnvDoctor/zipball/7ed6d2d5f3cf3f2c026bf00ab3207ba89286eff3",
-                "reference": "7ed6d2d5f3cf3f2c026bf00ab3207ba89286eff3",
-                "shasum": ""
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Mantraideas\\LaravelEnvDoctor\\LaravelEnvDoctorServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Mantraideas\\LaravelEnvDoctor\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dipesh Khanal",
-                    "email": "dipeshkhanal79@gmail.com",
-                    "homepage": "https://www.khanaldipesh.com.np",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "LaravelEnvDoctor is a developer-friendly CLI tool for Laravel that checks your .env variables, validates the current environment, and ensures directory permissions are correctly set — helping you catch misconfigurations before they become problems.",
-            "support": {
-                "issues": "https://github.com/MantraIdeas/LaravelEnvDoctor/issues",
-                "source": "https://github.com/MantraIdeas/LaravelEnvDoctor/tree/1.0.3"
-            },
-            "time": "2025-05-29T05:46:39+00:00"
-        },
-        {
             "name": "monolog/monolog",
             "version": "3.9.0",
             "source": {
@@ -5098,6 +4989,108 @@
                 }
             ],
             "time": "2025-03-24T10:02:05+00:00"
+        },
+        {
+            "name": "nativephp/mobile",
+            "version": "1.9.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://nativephp.composer.sh/download/9fd73732-49c3-4625-a328-740b9c3096bc/nativephp-1.9.4.zip",
+                "reference": "9f63cda06c2482a302022ce44389218d16593dfe",
+                "shasum": "74e690145f5fea78633810d0d4fe4a1262a32b77"
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-simplexml": "*",
+                "guzzlehttp/guzzle": "^7.9",
+                "illuminate/contracts": "^10.0|^11.0|^12.0",
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "laravel/prompts": "^0.1.1|^0.2|^0.3",
+                "php": "^8.3",
+                "spatie/laravel-package-tools": "^1.14.0"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.0",
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.9",
+                "orchestra/testbench": "^8.18",
+                "pestphp/pest": "^2.7",
+                "pestphp/pest-plugin-arch": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Native\\Mobile\\NativeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Native\\Mobile\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "qa": [
+                    "@composer format",
+                    "@composer analyse",
+                    "@composer test"
+                ],
+                "test": [
+                    "vendor/bin/pest"
+                ],
+                "format": [
+                    "vendor/bin/pint"
+                ],
+                "analyse": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test-coverage": [
+                    "vendor/bin/pest --coverage"
+                ],
+                "post-autoload-dump": [
+                    "@php ./vendor/bin/testbench package:discover --ansi"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Hamp",
+                    "role": "Developer",
+                    "email": "simon@nativephp.com"
+                },
+                {
+                    "name": "Shane Rosenthal",
+                    "role": "Developer",
+                    "email": "shane@nativephp.com"
+                },
+                {
+                    "name": "Marcel Pociot",
+                    "role": "Developer",
+                    "email": "marcel@beyondco.de"
+                }
+            ],
+            "description": "NativePHP for Mobile",
+            "homepage": "https://nativephp.com/mobile",
+            "keywords": [
+                "android",
+                "ios",
+                "laravel",
+                "nativephp"
+            ],
+            "time": "2025-09-10T01:15:29+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -12046,16 +12039,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.23",
+            "version": "2.1.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "a34502adbbd5c2366b5a97679848a5ace4f6f2f5"
+                "reference": "5a9f28e9ec3fe8b1b7cbd42b3935a66b569f2ff2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a34502adbbd5c2366b5a97679848a5ace4f6f2f5",
-                "reference": "a34502adbbd5c2366b5a97679848a5ace4f6f2f5",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/5a9f28e9ec3fe8b1b7cbd42b3935a66b569f2ff2",
+                "reference": "5a9f28e9ec3fe8b1b7cbd42b3935a66b569f2ff2",
                 "shasum": ""
             },
             "require": {
@@ -12100,7 +12093,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-09-10T11:42:22+00:00"
+            "time": "2025-09-12T07:54:24+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

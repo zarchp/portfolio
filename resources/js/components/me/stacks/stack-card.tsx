@@ -52,6 +52,8 @@ export function StackCard({
           src={icon}
           alt={name}
           className="size-10 shrink-0 group-hover:animate-wiggle-zoom"
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div className="truncate text-base font-semibold text-foreground">
@@ -70,11 +72,14 @@ export function StackCard({
       </div>
       {hasStar && (
         <div
+          role="img"
           aria-label="Most expert"
-          title="Most expert"
           className="absolute top-2 right-2 text-emerald-500"
         >
-          <Star className="size-5 fill-yellow-400 text-yellow-400" />
+          <Star
+            className="size-5 fill-yellow-400 text-yellow-400"
+            aria-hidden="true"
+          />
         </div>
       )}
     </div>

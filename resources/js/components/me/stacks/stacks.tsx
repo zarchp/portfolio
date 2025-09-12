@@ -31,7 +31,10 @@ export default function Stacks() {
     .filter(({ items }) => items.length);
 
   return (
-    <Section id="stacks">
+    <Section
+      id="stacks"
+      className="section-deferred"
+    >
       <SectionContainer>
         <StacksHeader />
 
