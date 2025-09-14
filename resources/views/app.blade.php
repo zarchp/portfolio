@@ -12,9 +12,12 @@ declare(strict_types=1);
     <meta name="description"
         content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web apps. Explore his portfolio of projects and achievements.">
 
+    <link rel="canonical" href="https://anzar.dev">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ config('app.url') }}" />
+    <meta property="og:url" content="https://anzar.dev" />
+    <meta property="og:site_name" content="Anzar Syahid Portfolio">
     <meta property="og:title" content="{{ config('app.name', 'Laravel') }}" />
     <meta property="og:description"
         content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web apps. Explore his portfolio of projects and achievements." />
@@ -22,7 +25,7 @@ declare(strict_types=1);
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="{{ config('app.url') }}" />
+    <meta property="twitter:url" content="https://anzar.dev" />
     <meta property="twitter:title" content="{{ config('app.name', 'Laravel') }}" />
     <meta property="twitter:description"
         content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web apps. Explore his portfolio of projects and achievements." />
