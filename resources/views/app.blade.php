@@ -10,23 +10,23 @@ declare(strict_types=1);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
-        content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web technologies. Explore his portfolio of projects and achievements.">
+        content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web apps. Explore his portfolio of projects and achievements.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ config('app.url') }}" />
     <meta property="og:title" content="{{ config('app.name', 'Laravel') }}" />
     <meta property="og:description"
-        content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web technologies. Explore his portfolio of projects and achievements." />
-    <meta property="og:image" content="https://your-domain.tld/images/og-preview.png" />
+        content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web apps. Explore his portfolio of projects and achievements." />
+    <meta property="og:image" content="https://anzar.dev/images/og-preview.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="{{ config('app.url') }}" />
     <meta property="twitter:title" content="{{ config('app.name', 'Laravel') }}" />
     <meta property="twitter:description"
-        content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web technologies. Explore his portfolio of projects and achievements." />
-    <meta property="twitter:image" content="https://your-domain.tld/images/og-preview.png" />
+        content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web apps. Explore his portfolio of projects and achievements." />
+    <meta property="twitter:image" content="https://anzar.dev/images/og-preview.png" />
 
     {{-- Inline script to detect system dark mode preference and apply it immediately --}}
     <script>
