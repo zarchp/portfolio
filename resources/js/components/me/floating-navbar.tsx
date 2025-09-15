@@ -204,6 +204,7 @@ export default function FloatingNavbar() {
                       ? 'text-white group-hover:text-brand hover:text-white'
                       : 'text-muted-foreground hover:text-white/90'
                   }`}
+                  data-umami-event={`navbar-${item.label}`}
                 >
                   {item.label}
                 </button>
@@ -219,6 +220,7 @@ export default function FloatingNavbar() {
             }
             className="relative z-10 ml-1 h-9 w-9 rounded-full p-0 text-muted-foreground hover:bg-accent/50"
             aria-label="Toggle theme"
+            data-umami-event="toggle-theme-button"
           >
             {appearance === 'dark' ? (
               <Sun className="h-4 w-4" />

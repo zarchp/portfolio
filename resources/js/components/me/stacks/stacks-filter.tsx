@@ -26,6 +26,7 @@ export function StacksFilter({ filter, setFilter }: Props) {
                 ? 'bg-brand text-white'
                 : 'border-border bg-secondary hover:bg-secondary/50',
             )}
+            data-umami-event={`stacks-filter-button-${category.key}`}
           >
             {category.label}
           </button>

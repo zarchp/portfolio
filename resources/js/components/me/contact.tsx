@@ -176,6 +176,7 @@ export default function Contact() {
                     size="lg"
                     disabled={form.processing}
                     className="group"
+                    data-umami-event="contact-send-message-button"
                   >
                     {form.processing ? (
                       'Sending...'
@@ -200,6 +201,7 @@ export default function Contact() {
                   variant="outliner"
                   size="lg"
                   asChild
+                  data-umami-event="contact-download-cv-button"
                 >
                   <a
                     href="#"
@@ -216,6 +218,7 @@ export default function Contact() {
                   variant="outliner"
                   size="lg"
                   asChild
+                  data-umami-event="contact-whatsapp-button"
                 >
                   <a
                     href={profile.links.whatsapp}
@@ -232,6 +235,7 @@ export default function Contact() {
                   variant="outliner"
                   size="lg"
                   asChild
+                  data-umami-event="contact-email-button"
                 >
                   <a
                     href={`mailto:${profile.email}`}

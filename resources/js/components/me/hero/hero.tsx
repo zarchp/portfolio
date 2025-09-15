@@ -80,6 +80,7 @@ export default function Hero() {
             asChild
             size="lg"
             className="group shadow-sm"
+            data-umami-event="hero-explore-my-work-button"
           >
             <a
               href="#projects"
@@ -95,6 +96,7 @@ export default function Hero() {
             variant="outliner"
             size="lg"
             className="group shadow-sm"
+            data-umami-event="hero-lets-connect-button"
           >
             <a
               href="#contact"

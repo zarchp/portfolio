@@ -24,6 +24,7 @@ export function IconLink({ href, label, children }: IconLinkProps) {
           rel="noreferrer noopener"
           aria-label={label}
           className="group rounded-md p-2 transition-colors hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          data-umami-event={`social-link-${label}`}
         >
           {children}
         </motion.a>

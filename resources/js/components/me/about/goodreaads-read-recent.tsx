@@ -82,6 +82,7 @@ export default function GoodreadsReadRecent({ className }: Props) {
                   target="_blank"
                   rel="noreferrer noopener"
                   className="block"
+                  data-umami-event="about-goodreads-book-link"
                 >
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -104,6 +105,7 @@ export default function GoodreadsReadRecent({ className }: Props) {
             target="_blank"
             rel="noreferrer"
             className="text-xs text-brand underline-offset-2 hover:underline"
+            data-umami-event="about-goodreads-profile-link"
           >
             View Goodreads Profile
           </a>

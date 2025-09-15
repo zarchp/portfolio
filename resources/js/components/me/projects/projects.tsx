@@ -77,6 +77,7 @@ export default function ProjectsSection() {
               disabled={!canShowMore}
               variant="ghost"
               className="group mx-auto flex items-center gap-2 rounded-full px-6 py-2 text-lg text-secondary-foreground transition-all hover:bg-brand-50 hover:text-brand disabled:opacity-100"
+              data-umami-event="show-more-projects-button"
             >
               {canShowMore ? 'Show More' : 'More projects coming soon 🚀'}
               {canShowMore && (

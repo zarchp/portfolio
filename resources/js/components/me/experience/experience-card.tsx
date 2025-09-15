@@ -91,6 +91,7 @@ export function ExperienceCard({ item, index, isLast, onToggle }: Props) {
               <button
                 aria-label="Toggle details"
                 className="cursor-pointer rounded-md p-2 transition hover:bg-muted"
+                data-umami-event="toggle-experience-button"
               >
                 <ChevronsUpDown className="h-5 w-5" />
               </button>

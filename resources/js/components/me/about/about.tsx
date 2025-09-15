@@ -181,6 +181,7 @@ export default function About() {
                       target="_blank"
                       rel="noreferrer"
                       className="group"
+                      data-umami-event={`about-social-link-${contact.name}`}
                     >
                       <div className="flex items-center gap-3">
                         <div className="text-brand">{contact.icon}</div>
