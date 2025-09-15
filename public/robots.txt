@@ -1,3 +1,7 @@
+User-agent: Bingbot
+Allow: /
+
 User-agent: *
 Allow: /
+
 Sitemap: https://anzar.dev/sitemap.xml
