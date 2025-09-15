@@ -21,7 +21,7 @@ declare(strict_types=1);
     <meta property="og:title" content="{{ config('app.name', 'Laravel') }}" />
     <meta property="og:description"
         content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web apps. Explore his portfolio of projects and achievements." />
-    <meta property="og:image" content="https://anzar.dev/images/og-preview.png" />
+    <meta property="og:image" content="https://anzar.dev/images/og-preview.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -29,7 +29,7 @@ declare(strict_types=1);
     <meta property="twitter:title" content="{{ config('app.name', 'Laravel') }}" />
     <meta property="twitter:description"
         content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web apps. Explore his portfolio of projects and achievements." />
-    <meta property="twitter:image" content="https://anzar.dev/images/og-preview.png" />
+    <meta property="twitter:image" content="https://anzar.dev/images/og-preview.jpg" />
 
     {{-- Inline script to detect system dark mode preference and apply it immediately --}}
     <script>
