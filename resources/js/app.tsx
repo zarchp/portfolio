@@ -23,7 +23,7 @@ const queryClient = new QueryClient({
 });
 
 createInertiaApp({
-  title: (title) => (title ? `${title} - ${appName}` : appName),
+  title: (title) => (title ? title : appName),
   resolve: (name) =>
     resolvePageComponent(
       `./pages/${name}.tsx`,

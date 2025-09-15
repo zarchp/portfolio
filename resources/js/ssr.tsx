@@ -12,7 +12,7 @@ createServer((page) =>
   createInertiaApp({
     page,
     render: ReactDOMServer.renderToString,
-    title: (title) => (title ? `${title} - ${appName}` : appName),
+    title: (title) => (title ? title : appName),
     // Eager resolver: bundle includes all pages; no network during SSR
     resolve: (name) => {
       const mod = pages[`./pages/${name}.tsx`];
