@@ -39,7 +39,7 @@ export const profile = {
       icon: Github,
     },
     {
-      href: 'https://www.linkedin.com/in/your-handle',
+      href: 'https://www.linkedin.com/in/anzar-syahid',
       label: 'LinkedIn',
       icon: Linkedin,
     },
