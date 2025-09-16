@@ -34,9 +34,9 @@ export const profile = {
     'I specialize in building modern web apps, simplifying complex ideas into intuitive, scalable products that drive user growth and business impact.',
   socials: [
     {
-      href: 'https://github.com/zarchp',
-      label: 'GitHub',
-      icon: Github,
+      href: 'mailto:anzar.syahid@gmail.com',
+      label: 'Email',
+      icon: Mail,
     },
     {
       href: 'https://www.linkedin.com/in/anzar-syahid',
@@ -44,9 +44,9 @@ export const profile = {
       icon: Linkedin,
     },
     {
-      href: 'mailto:hello@example.com',
-      label: 'Email',
-      icon: Mail,
+      href: 'https://github.com/zarchp',
+      label: 'GitHub',
+      icon: Github,
     },
     {
       href: 'https://x.com/ZarChp',
