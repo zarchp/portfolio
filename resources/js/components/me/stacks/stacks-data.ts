@@ -111,11 +111,18 @@ export const stacks: StackItem[] = [
   },
   // databases
   {
+    name: 'PostgreSQL',
+    icon: '/icons/postgressql.svg',
+    level: 'Expert',
+    category: 'database',
+    hasStar: true,
+  },
+  {
     name: 'MySQL',
     icon: '/icons/mysql.svg',
     level: 'Expert',
     category: 'database',
-    hasStar: true,
+    hasStar: false,
   },
   {
     name: 'SQLite',
@@ -134,13 +141,6 @@ export const stacks: StackItem[] = [
   {
     name: 'Oracle',
     icon: '/icons/oracle.svg',
-    level: 'Advanced',
-    category: 'database',
-    hasStar: false,
-  },
-  {
-    name: 'PostgreSQL',
-    icon: '/icons/postgressql.svg',
     level: 'Advanced',
     category: 'database',
     hasStar: false,
@@ -191,7 +191,7 @@ export const stacks: StackItem[] = [
   {
     name: 'Firebase',
     icon: '/icons/firebase.svg',
-    level: 'Intermediate',
+    level: 'Advanced',
     category: 'devops',
     hasStar: false,
   },
