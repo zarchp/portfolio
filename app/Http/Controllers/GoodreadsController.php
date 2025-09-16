@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use DateTimeImmutable;
 use Illuminate\Http\Client\ConnectionException;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use SimpleXMLElement;
@@ -18,7 +18,7 @@ final class GoodreadsController
     /**
      * Handle the incoming request.
      */
-    public function __invoke()
+    public function __invoke(): JsonResponse
     {
         $userId = (string) config('services.goodreads.user_id');
         if ($userId === '') {
@@ -58,7 +58,7 @@ final class GoodreadsController
                 $image = (string) $item['book_medium_image_url'];
                 $userRating = (int) ($item['user_rating'] ?? 0);
                 $userReadAt = (string) $item['user_read_at'];
-                $userDatedded = (string) $item['user_date_added'];
+                $userDateAdded = (string) $item['user_date_added'];
 
                 $items[] = [
                     'title' => $title,
@@ -68,7 +68,7 @@ final class GoodreadsController
                     'image' => $image,
                     'userRating' => $userRating,
                     'userReadAt' => $this->toIsoDate($userReadAt),
-                    'userDatedded' => $this->toIsoDate($userDatedded),
+                    'userDateAdded' => $this->toIsoDate($userDateAdded),
                 ];
             }
 
@@ -83,7 +83,7 @@ final class GoodreadsController
         return response()->json($data, $status);
     }
 
-    public function simplexmlToArray(SimpleXMLElement $xml): array
+    private function simplexmlToArray(SimpleXMLElement $xml): array
     {
         $arr = [];
 

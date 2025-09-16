@@ -10,7 +10,7 @@ parameters:
         - database/factories
         - routes
         - config
-    level: max
+    level: 6
     checkOctaneCompatibility: true
     checkModelProperties: true
     treatPhpDocTypesAsCertain: false

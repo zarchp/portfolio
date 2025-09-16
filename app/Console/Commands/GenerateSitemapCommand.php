@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Spatie\Sitemap\SitemapGenerator;
 
-class GenerateSitemap extends Command
+final class GenerateSitemapCommand extends Command
 {
     /**
      * The console command name.
@@ -23,13 +25,10 @@ class GenerateSitemap extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
-    public function handle()
+    public function handle(): void
     {
-        // modify this to your own needs
-        SitemapGenerator::create(config('app.url'))
+        SitemapGenerator::create((string) config('app.url'))
             ->writeToFile(public_path('sitemap.xml'));
     }
 }

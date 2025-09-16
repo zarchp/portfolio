@@ -42,9 +42,9 @@ return [
     ],
 
     'discord' => [
-        'contact_webhook'  => env('DISCORD_CONTACT_WEBHOOK'),
+        'contact_webhook' => env('DISCORD_CONTACT_WEBHOOK'),
         'contact_username' => env('DISCORD_CONTACT_USERNAME', 'Portfolio Contact'),
-        'contact_avatar'   => env('DISCORD_CONTACT_AVATAR'),
+        'contact_avatar' => env('DISCORD_CONTACT_AVATAR'),
     ],
 
 ];

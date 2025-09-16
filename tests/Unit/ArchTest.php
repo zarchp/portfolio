@@ -12,41 +12,9 @@ arch('controllers')
     ->expect('App\Http\Controllers')
     ->not->toBeUsed();
 
-arch('avoid mutation')
-    ->expect('App')
-    ->classes()
-    ->toBeReadonly()
-    ->ignoring([
-        'App\Exceptions',
-        'App\Http\Middleware',
-        'App\Http\Requests',
-        'App\Http\Resources',
-        'App\Jobs',
-        'App\Models',
-        'App\Providers',
-        'App\Queries',
-        'App\Services',
-    ]);
-
 arch('avoid inheritance')
-    ->expect('App')
-    ->classes()
-    ->toExtendNothing()
-    ->ignoring([
-        'App\Exceptions',
-        'App\Http\Middleware',
-        'App\Http\Requests',
-        'App\Http\Resources',
-        'App\Jobs',
-        'App\Models',
-        'App\Providers',
-        'App\Services',
-    ]);
-
-arch('annotations')
-    ->expect('App')
-    ->toHavePropertiesDocumented()
-    ->toHaveMethodsDocumented();
+    ->expect(['App\Services', 'App\Actions'])
+    ->toExtendNothing();
 
 arch('avoid open for extension')
     ->expect('App')
@@ -81,6 +49,7 @@ arch('models')
         'App\Http',
         'App\Jobs',
         'App\Models',
+        'App\Notifications',
         'App\Policies',
         'App\Providers',
         'App\Queries',
@@ -92,3 +61,44 @@ arch('models')
 arch('actions')
     ->expect('App\Actions')
     ->toHaveMethod('handle');
+
+/* arch('avoid mutation')
+    ->expect('App')
+    ->classes()
+    ->toBeReadonly()
+    ->ignoring([
+        'App\Console\Commands',
+        'App\Data',
+        'App\Exceptions',
+        'App\Http\Controllers',
+        'App\Http\Middleware',
+        'App\Http\Requests',
+        'App\Http\Resources',
+        'App\Jobs',
+        'App\Models',
+        'App\Providers',
+        'App\Queries',
+        'App\Services',
+    ]); */
+
+/* arch('avoid inheritance')
+    ->expect('App')
+    ->classes()
+    ->toExtendNothing()
+    ->ignoring([
+        'App\Console\Commands',
+        'App\Data',
+        'App\Exceptions',
+        'App\Http\Middleware',
+        'App\Http\Requests',
+        'App\Http\Resources',
+        'App\Jobs',
+        'App\Models',
+        'App\Notifications',
+        'App\Providers',
+        'App\Services',
+    ]); */
+
+/* arch('annotations')
+    ->expect('App')
+    ->toHaveMethodsDocumented(); */

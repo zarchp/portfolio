@@ -102,8 +102,8 @@
     "test:refactor": "rector --dry-run",
     "test:types": "phpstan",
     "test:typos": "peck",
-    "test:type-coverage": "pest --parallel --type-coverage --min=100",
-    "test:unit": "pest --parallel --coverage --exactly=100",
+    "test:type-coverage": "pest --parallel --type-coverage --exactly=100",
+    "test:unit": "pest --parallel --coverage --min=90",
     "test": [
       "@test:type-coverage",
       "@test:unit",

@@ -9,7 +9,7 @@ type GoodreadsItem = {
   image: string;
   userRating: number;
   userReadAt: string | null;
-  userDatedded: string | null;
+  userDateAdded: string | null;
 };
 
 type GoodreadsResponse = {

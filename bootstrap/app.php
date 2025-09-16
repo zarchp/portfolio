@@ -29,10 +29,10 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        $exceptions->render(function (ThrottleRequestsException $e, $request) {
+        $exceptions->render(function (ThrottleRequestsException $throttleRequestsException, $request) {
             if ($request->expectsJson()) {
                 return response()->json([
-                    'status'  => 'error',
+                    'status' => 'error',
                     'message' => 'You’ve reached the limit. Please try again later.',
                 ], 429);
             }
@@ -42,7 +42,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->withInput();
         });
 
-        $exceptions->renderable(function (NotFoundHttpException $e, $request) {
+        $exceptions->renderable(function (NotFoundHttpException $notFoundHttpException, $request) {
             if ($request->expectsJson() || $request->wantsJson() || $request->is('api/*')) {
                 return response()->json(['message' => 'Resource not found'], 404);
             }

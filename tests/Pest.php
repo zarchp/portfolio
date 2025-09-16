@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 pest()->extend(Tests\TestCase::class)
     ->use(Illuminate\Foundation\Testing\RefreshDatabase::class)
-    ->in('Feature');
+    ->in('Feature', 'Unit');
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +61,6 @@ function something(): void
  * Example usage:
  * expect($someTimestamp)->toBeCloseToTimestamp(now()->timestamp);
  */
-expect()->extend('toBeCloseToTimestamp', function (int $expected, int $tolerance = 10): \Pest\Expectation {
+expect()->extend('toBeCloseToTimestamp', function (int $expected, int $tolerance = 10): Pest\Expectation {
     return expect(abs($this->value - $expected) <= $tolerance)->toBeTrue();
 });
