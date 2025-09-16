@@ -67,7 +67,7 @@ export const contacts = [
     name: 'CV',
     icon: <Download className="size-5" />,
     label: 'Download CV',
-    href: '#',
+    href: '/docs/Muhamad-Anzar-Syahid-CV.pdf',
   },
 ] as const;
 

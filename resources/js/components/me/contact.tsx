@@ -204,7 +204,7 @@ export default function Contact() {
                   data-umami-event="contact-download-cv-button"
                 >
                   <a
-                    href="#"
+                    href="/docs/Muhamad-Anzar-Syahid-CV.pdf"
                     target="_blank"
                     rel="noreferrer noopener"
                     className="flex items-center gap-2"
