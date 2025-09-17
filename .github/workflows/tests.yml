@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - develop
-      - main
+      - master
   pull_request:
     branches:
       - develop
-      - main
+      - master
 
 jobs:
   ci:
@@ -57,6 +57,3 @@ jobs:
 
       - name: Tests
         run: composer test
-
-      - name: TestsShow Git Diff
-        run: git diff
