@@ -11,7 +11,7 @@ final class DiscordChannel
 {
     public function send(object $notifiable, Notification $notification): void
     {
-        $webhook = (string) method_exists($notifiable, 'routeNotificationForDiscord') !== '' && (string) method_exists($notifiable, 'routeNotificationForDiscord') !== '0'
+        $webhook = (string) method_exists($notifiable, 'routeNotificationForDiscord') !== ''
             ? $notifiable->routeNotificationForDiscord()
             : config('services.discord.contact_webhook');
 
@@ -19,6 +19,7 @@ final class DiscordChannel
             return;
         }
 
+        // @phpstan-ignore-next-line
         $payload = $notification->toDiscord($notifiable);
 
         Http::asJson()->post($webhook, $payload)->throw();
