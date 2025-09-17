@@ -37,7 +37,12 @@ jobs:
           node-version: '24'
           cache: 'pnpm'
 
-      - name: Install Dependencies
+      - name: Install PHP Dependencies
+        env:
+          COMPOSER_AUTH: >
+            {"http-basic":{"nativephp.composer.sh":{
+              "username":"${{ secrets.NATIVEPHP_USERNAME }}",
+              "password":"${{ secrets.NATIVEPHP_PASSWORD }}"}}}
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Copy Environment File
