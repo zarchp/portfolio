@@ -31,7 +31,7 @@ declare(strict_types=1);
         content="Anzar Syahid is an experienced full-stack web developer specializing in Laravel, React, and modern web apps. Explore his portfolio of projects and achievements." />
     <meta property="twitter:image" content="https://anzar.dev/images/og-preview.jpg" />
 
-    {{-- <script defer src="https://analytics.anzar.dev/script.js" data-website-id="78005ed6-e7ed-4be1-b29d-6b1bce8f11fa"></script> --}}
+    <script defer src="https://analytics.anzar.dev/script.js" data-website-id="78005ed6-e7ed-4be1-b29d-6b1bce8f11fa"></script>
     {{-- Inline script to detect system dark mode preference and apply it immediately --}}
     <script>
         (function() {
