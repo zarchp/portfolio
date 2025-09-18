@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('me');
-})->name('me');
+    return Inertia::render('home/index');
+})->name('home.index');
 
 Route::resource('contact', ContactController::class)
     ->only(['store'])
