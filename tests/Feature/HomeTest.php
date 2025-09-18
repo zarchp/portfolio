@@ -8,6 +8,6 @@ describe('home page', function (): void {
     it('renders successfully', function (): void {
         $this->get('/')
             ->assertOk()
-            ->assertInertia(fn(Assert $assert): Assert => $assert->component('me'));
+            ->assertInertia(fn(Assert $assert): Assert => $assert->component('home/index'));
     });
 });
