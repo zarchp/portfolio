@@ -47,11 +47,12 @@ return Application::configure(basePath: dirname(__DIR__))
                 return response()->json(['message' => 'Resource not found'], 404);
             }
 
-            return Inertia::render('errors/404')
-                ->toResponse($request)
-                ->setStatusCode(404)
-                ->header('X-Robots-Tag', 'noindex, follow')
-                ->header('Cache-Control', 'no-store, max-age=0');
+            $response = Inertia::render('errors/404')->toResponse($request);
+            $response->setStatusCode(404);
+            $response->headers->set('X-Robots-Tag', 'noindex, follow');
+            $response->headers->set('Cache-Control', 'no-store, max-age=0');
+
+            return $response;
         });
     })
     ->create();
