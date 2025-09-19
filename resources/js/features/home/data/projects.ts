@@ -149,6 +149,19 @@ export const allProjects: ProjectProps[] = [
     techStacks: ['Laravel', 'Livewire', 'GCP'],
   },
   {
+    id: 'yaitu',
+    title: 'Yaitu.id',
+    subtitle: 'Food Delivery for Offices',
+    description:
+      'A food delivery app for office areas and foodcourts, using the nearest couriers (internal staff) for faster service. It includes a landing page, a management dashboard, and an Android app on the Play Store for customers and couriers.',
+    imageUrl: '/images/projects/yaitu',
+    liveUrl: null,
+    repoUrl: null,
+    status: 'archived',
+    tags: ['Mobile', 'SaaS'],
+    techStacks: ['Laravel', 'Android', 'AWS'],
+  },
+  {
     id: 'tjikini',
     title: 'Kedai Tjikini',
     subtitle: 'Food Ordering & Reservations',
@@ -212,19 +225,6 @@ export const allProjects: ProjectProps[] = [
     status: 'live',
     tags: ['Web App', 'Dashboard'],
     techStacks: ['Wordpress', 'Laravel'],
-  },
-  {
-    id: 'yaitu',
-    title: 'Yaitu.id',
-    subtitle: 'Food Delivery for Offices',
-    description:
-      'A food delivery app for office areas and foodcourts, using the nearest couriers (internal staff) for faster service. It includes a landing page, a management dashboard, and an Android app on the Play Store for customers and couriers.',
-    imageUrl: '/images/projects/yaitu',
-    liveUrl: null,
-    repoUrl: null,
-    status: 'archived',
-    tags: ['Web App', 'Mobile'],
-    techStacks: ['Laravel', 'Android'],
   },
   {
     id: 'bagimu',
