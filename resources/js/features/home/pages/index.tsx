@@ -1,5 +1,6 @@
+import Meta from '@/components/meta';
 import { BubbleBackground } from '@/components/shadcn-io/bubble-background';
-import { Head } from '@inertiajs/react';
+import { buildPageMeta } from '@/data/seo';
 import { About } from '../components/about';
 import Contact from '../components/contact';
 import { Experience } from '../components/experience';
@@ -9,10 +10,18 @@ import { Hero } from '../components/hero';
 import { Projects } from '../components/projects';
 import { Stacks } from '../components/stacks';
 
+function HomeMeta() {
+  const meta = buildPageMeta({
+    path: '/',
+  });
+
+  return <Meta {...meta} />;
+}
+
 export default function Home() {
   return (
     <>
-      <Head title="Anzar Syahid - Full Stack Developer Portfolio" />
+      <HomeMeta />
 
       <main className="relative min-h-screen">
         <BubbleBackground

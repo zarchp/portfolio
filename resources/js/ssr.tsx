@@ -13,11 +13,11 @@ createServer((page) =>
     page,
     render: ReactDOMServer.renderToString,
     title: (title) => (title ? title : appName),
-    // Eager resolver: bundle includes all pages; no network during SSR
     resolve: (name) => {
-      const mod = pages[`./pages/${name}.tsx`];
+      const key = `./pages/${name}.tsx`;
+      const mod = pages[key];
       if (!mod) {
-        throw new Error(`[SSR] Page not found: ./pages/${name}.tsx`);
+        throw new Error(`[SSR] Page not found: ${key}`);
       }
       return mod as any;
     },
